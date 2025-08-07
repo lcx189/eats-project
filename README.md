@@ -48,7 +48,7 @@
     ```
 
 2.  **設定ファイルを編集します。**
-    `eats-server/src/main/resources/application.yml` を開き、ご自身の環境に合わせて以下の情報を設定してください。
+    `eats-server/src/main/resources/application-dev.yml` を開き、ご自身の環境に合わせて以下の情報を設定してください。
     - データベース接続情報 (MySQL)
     - Redis接続情報
     - クラウドストレージの認証情報
