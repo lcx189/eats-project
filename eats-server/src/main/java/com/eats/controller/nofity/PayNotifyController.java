@@ -30,7 +30,7 @@ public class PayNotifyController {
     private WeChatProperties weChatProperties;
 
     /**
-     * 支払い成功コールバッ�?
+     * 支払い成功コールバッ
      *
      * @param request
      */
@@ -40,12 +40,12 @@ public class PayNotifyController {
         String body = readData(request);
         log.info("支払い成功コールバック：{}", body);
 
-        //データを復号�?
+        //データを復号
         String plainText = decryptData(body);
         log.info("復号化後のテキスト：{}", plainText);
 
         JSONObject jsonObject = JSON.parseObject(plainText);
-        String outTradeNo = jsonObject.getString("out_trade_no");//事業者プラットフォーム注文番�?
+        String outTradeNo = jsonObject.getString("out_trade_no");//事業者プラットフォーム注文番
         String transactionId = jsonObject.getString("transaction_id");//WeChat Pay取引番号
 
         log.info("事業者プラットフォーム注文番号：{}", outTradeNo);
@@ -54,7 +54,7 @@ public class PayNotifyController {
         //業務処理、注文ステータス変更、新規注文通知
         orderService.paySuccess(outTradeNo);
 
-        //WeChatに応�?
+        //WeChatに応
         responseToWeixin(response);
     }
 
@@ -79,7 +79,7 @@ public class PayNotifyController {
     }
 
     /**
-     * データを復号�?
+     * データを復号
      *
      * @param body
      * @return
@@ -93,7 +93,7 @@ public class PayNotifyController {
         String associatedData = resource.getString("associated_data");
 
         AesUtil aesUtil = new AesUtil(weChatProperties.getApiV3Key().getBytes(StandardCharsets.UTF_8));
-        //暗号文を復号�?
+        //暗号文を復号
         String plainText = aesUtil.decryptToString(associatedData.getBytes(StandardCharsets.UTF_8),
                 nonce.getBytes(StandardCharsets.UTF_8),
                 ciphertext);
@@ -102,7 +102,7 @@ public class PayNotifyController {
     }
 
     /**
-     * WeChatに応�?
+     * WeChatに応
      * @param response
      */
     private void responseToWeixin(HttpServletResponse response) throws Exception{

@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 /**
- * 注文概要デー�?
+ * 注文概要デー
  */
 @Data
 @Builder
@@ -24,9 +24,9 @@ public class OrderOverViewVO implements Serializable {
     //完了件数
     private Integer completedOrders;
 
-    //キャンセル件�?
+    //キャンセル件
     private Integer cancelledOrders;
 
-    //全注文件�?
+    //全注文件
     private Integer allOrders;
 }

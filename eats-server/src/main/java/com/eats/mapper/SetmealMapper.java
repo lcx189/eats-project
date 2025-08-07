@@ -18,7 +18,7 @@ import java.util.Map;
 public interface SetmealMapper {
 
     /**
-     * カテゴリIDに基づいてセットメニューの数を検�?
+     * カテゴリIDに基づいてセットメニューの数を検
      *
      * @param id
      * @return
@@ -27,7 +27,7 @@ public interface SetmealMapper {
     Integer countByCategoryId(Long id);
 
     /**
-     * IDに基づいてセットメニューを編�?
+     * IDに基づいてセットメニューを編
      *
      * @param setmeal
      */
@@ -43,14 +43,14 @@ public interface SetmealMapper {
     void insert(Setmeal setmeal);
 
     /**
-     * ページング検�?
+     * ページング検
      * @param setmealPageQueryDTO
      * @return
      */
     Page<SetmealVO> pageQuery(SetmealPageQueryDTO setmealPageQueryDTO);
 
     /**
-     * IDに基づいてセットメニューを検�?
+     * IDに基づいてセットメニューを検
      * @param id
      * @return
      */
@@ -58,7 +58,7 @@ public interface SetmealMapper {
     Setmeal getById(Long id);
 
     /**
-     * IDに基づいてセットメニューを削�?
+     * IDに基づいてセットメニューを削
      * @param setmealId
      */
     @Delete("delete from setmeal where id = #{id}")
@@ -72,14 +72,14 @@ public interface SetmealMapper {
     SetmealVO getByIdWithDish(Long id);
 
     /**
-     * 動的条件でセットメニューを検�?
+     * 動的条件でセットメニューを検
      * @param setmeal
      * @return
      */
     List<Setmeal> list(Setmeal setmeal);
 
     /**
-     * セットメニューIDに基づいて料理オプションを検�?
+     * セットメニューIDに基づいて料理オプションを検
      * @param setmealId
      * @return
      */

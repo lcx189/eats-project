@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement //アノテーション方式のトランザクション管理を有効にする
 @Slf4j
 @EnableCaching//キャッシュアノテーション機能を有効にする
-@EnableScheduling //タスクスケジューリングを有効にす�?
+@EnableScheduling //タスクスケジューリングを有効にす
 public class EatsApplication {
     public static void main(String[] args) {
         SpringApplication.run(EatsApplication.class, args);

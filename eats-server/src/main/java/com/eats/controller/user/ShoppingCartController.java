@@ -57,7 +57,7 @@ public class ShoppingCartController {
     }
 
     /**
-     * ショッピングカートから商品を一つ削�?
+     * ショッピングカートから商品を一つ削
      * @param shoppingCartDTO
      * @return
      */

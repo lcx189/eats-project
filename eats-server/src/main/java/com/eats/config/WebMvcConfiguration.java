@@ -22,7 +22,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import java.util.List;
 
 /**
- * 設定クラス、Web層関連コンポーネントを登�?
+ * 設定クラス、Web層関連コンポーネントを登
  */
 @Configuration
 @Slf4j
@@ -51,7 +51,7 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
 
     @Bean
     public Docket docket1(){
-        log.info("APIドキュメントの生成を準備していま�?..");
+        log.info("APIドキュメントの生成を準備していま..");
         ApiInfo apiInfo = new ApiInfoBuilder()
                 .title("スカイテイクアウトプロジェクトAPIドキュメント")
                 .version("2.0")
@@ -59,7 +59,7 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
                 .build();
 
         Docket docket = new Docket(DocumentationType.SWAGGER_2)
-                .groupName("管理側インターフェー�?")
+                .groupName("管理側インターフェー")
                 .apiInfo(apiInfo)
                 .select()
                 //生成するインターフェースがスキャンする必要のあるパッケージを指定
@@ -72,7 +72,7 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
 
     @Bean
     public Docket docket2(){
-        log.info("APIドキュメントの生成を準備していま�?..");
+        log.info("APIドキュメントの生成を準備していま..");
         ApiInfo apiInfo = new ApiInfoBuilder()
                 .title("スカイテイクアウトプロジェクトAPIドキュメント")
                 .version("2.0")
@@ -80,7 +80,7 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
                 .build();
 
         Docket docket = new Docket(DocumentationType.SWAGGER_2)
-                .groupName("ユーザー側インターフェー�?")
+                .groupName("ユーザー側インターフェー")
                 .apiInfo(apiInfo)
                 .select()
                 //生成するインターフェースがスキャンする必要のあるパッケージを指定
@@ -92,7 +92,7 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
     }
 
     /**
-     * 静的リソースマッピングを設定し、主にAPIドキュメント（html、js、css）にアクセスしま�?
+     * 静的リソースマッピングを設定し、主にAPIドキュメント（html、js、css）にアクセスしま
      * @param registry
      */
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -102,7 +102,7 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
     }
 
     /**
-     * Spring MVCフレームワークのメッセージコンバータを拡�?
+     * Spring MVCフレームワークのメッセージコンバータを拡
      * @param converters
      */
     protected void extendMessageConverters(List<HttpMessageConverter<?>> converters) {

@@ -18,7 +18,7 @@ import java.util.List;
 @RestController("userDishController")
 @RequestMapping("/user/dish")
 @Slf4j
-@Api(tags = "C�?料理閲覧API")
+@Api(tags = "C料理閲覧API")
 public class DishController {
     @Autowired
     private DishService dishService;
@@ -38,7 +38,7 @@ public class DishController {
         //Redisのキーを構築、ルール：dish_カテゴリID
         String key = "dish_" + categoryId;
 
-        //Redisに料理データが存在するかを照�?
+        //Redisに料理データが存在するかを照
         List<DishVO> list = (List<DishVO>) redisTemplate.opsForValue().get(key);
         if(list != null && list.size() > 0){
             //存在する場合、直接返し、データベースを照会する必要はありません
@@ -47,7 +47,7 @@ public class DishController {
 
         Dish dish = new Dish();
         dish.setCategoryId(categoryId);
-        dish.setStatus(StatusConstant.ENABLE);//販売中の料理を照�?
+        dish.setStatus(StatusConstant.ENABLE);//販売中の料理を照
 
         //存在しない場合、データベースを照会し、照会したデータをRedisに格納します
         list = dishService.listWithFlavor(dish);

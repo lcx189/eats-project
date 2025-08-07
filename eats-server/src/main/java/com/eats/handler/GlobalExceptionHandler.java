@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.sql.SQLIntegrityConstraintViolationException;
 
 /**
- * グローバル例外ハンドラ、プロジェクトでスローされたビジネス例外を処�?
+ * グローバル例外ハンドラ、プロジェクトでスローされたビジネス例外を処
  */
 @RestControllerAdvice
 @Slf4j
 public class GlobalExceptionHandler {
 
     /**
-     * ビジネス例外をキャッ�?
+     * ビジネス例外をキャッ
      * @param ex
      * @return
      */
@@ -28,7 +28,7 @@ public class GlobalExceptionHandler {
     }
 
     /**
-     * SQL例外を処�?
+     * SQL例外を処
      * @param ex
      * @return
      */

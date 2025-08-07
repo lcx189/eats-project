@@ -1,7 +1,7 @@
 package com.eats.constant;
 
 /**
- * 状态常量，启用或者禁�?
+ * 状态常量，启用或者禁
  */
 public class StatusConstant {
 

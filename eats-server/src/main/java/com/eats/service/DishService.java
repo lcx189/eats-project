@@ -11,7 +11,7 @@ import java.util.List;
 public interface DishService {
 
     /**
-     * 料理と対応するフレーバーを追�?
+     * 料理と対応するフレーバーを追
      *
      * @param dishDTO
      */
@@ -26,14 +26,14 @@ public interface DishService {
     PageResult pageQuery(DishPageQueryDTO dishPageQueryDTO);
 
     /**
-     * 料理の一括削�?
+     * 料理の一括削
      *
      * @param ids
      */
     void deleteBatch(List<Long> ids);
 
     /**
-     * IDに基づいて料理と対応するフレーバーデータを検�?
+     * IDに基づいて料理と対応するフレーバーデータを検
      *
      * @param id
      * @return
@@ -41,7 +41,7 @@ public interface DishService {
     DishVO getByIdWithFlavor(Long id);
 
     /**
-     * IDに基づいて料理の基本情報と対応するフレーバー情報を編�?
+     * IDに基づいて料理の基本情報と対応するフレーバー情報を編
      *
      * @param dishDTO
      */

@@ -38,12 +38,12 @@ public class UserServiceImpl implements UserService {
     public User wxLogin(UserLoginDTO userLoginDTO) {
         String openid = getOpenid(userLoginDTO.getCode());
 
-        //openidが空かどうかを判断し、空の場合はログイン失敗としてビジネス例外をスロ�?
+        //openidが空かどうかを判断し、空の場合はログイン失敗としてビジネス例外をスロ
         if(openid == null){
             throw new LoginFailedException(MessageConstant.LOGIN_FAILED);
         }
 
-        //現在のユーザーが新規ユーザーかどうかを判�?
+        //現在のユーザーが新規ユーザーかどうかを判
         User user = userMapper.getByOpenid(openid);
 
         //新規ユーザーの場合、自動的に登録を完了
@@ -55,17 +55,17 @@ public class UserServiceImpl implements UserService {
             userMapper.insert(user);
         }
 
-        //このユーザーオブジェクトを返�?
+        //このユーザーオブジェクトを返
         return user;
     }
 
     /**
-     * WeChat APIサービスを呼び出し、WeChatユーザーのopenidを取�?
+     * WeChat APIサービスを呼び出し、WeChatユーザーのopenidを取
      * @param code
      * @return
      */
     private String getOpenid(String code){
-        //WeChat APIサービスを呼び出し、現在のWeChatユーザーのopenidを取�?
+        //WeChat APIサービスを呼び出し、現在のWeChatユーザーのopenidを取
         Map<String, String> map = new HashMap<>();
         map.put("appid",weChatProperties.getAppid());
         map.put("secret",weChatProperties.getSecret());

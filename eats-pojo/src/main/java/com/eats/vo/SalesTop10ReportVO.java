@@ -13,10 +13,10 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class SalesTop10ReportVO implements Serializable {
 
-    //商品名リスト（カンマ区切り）、例：魚香肉�?宮保鶏丁,水煮�?
+    //商品名リスト（カンマ区切り）、例：魚香肉宮保鶏丁,水煮
     private String nameList;
 
-    //販売数リスト（カンマ区切り）、例�?60,215,200
+    //販売数リスト（カンマ区切り）、例60,215,200
     private String numberList;
 
 }

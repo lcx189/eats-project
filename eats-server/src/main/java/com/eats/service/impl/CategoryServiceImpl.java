@@ -22,7 +22,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 /**
- * カテゴリビジネス�?
+ * カテゴリビジネス
  */
 @Service
 @Slf4j
@@ -36,15 +36,15 @@ public class CategoryServiceImpl implements CategoryService {
     private SetmealMapper setmealMapper;
 
     /**
-     * カテゴリを追�?
+     * カテゴリを追
      * @param categoryDTO
      */
     public void save(CategoryDTO categoryDTO) {
         Category category = new Category();
-        //プロパティをコピ�?
+        //プロパティをコピ
         BeanUtils.copyProperties(categoryDTO, category);
 
-        //カテゴリのステータスはデフォルトで無�?0)です
+        //カテゴリのステータスはデフォルトで無0)です
         category.setStatus(StatusConstant.DISABLE);
 
         //作成日時、更新日時、作成者、更新者を設定
@@ -57,7 +57,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     /**
-     * ページング検�?
+     * ページング検
      * @param categoryPageQueryDTO
      * @return
      */
@@ -73,14 +73,14 @@ public class CategoryServiceImpl implements CategoryService {
      * @param id
      */
     public void deleteById(Long id) {
-        //現在のカテゴリが料理に関連しているかどうかを照会し、関連している場合はビジネス例外をスローしま�?
+        //現在のカテゴリが料理に関連しているかどうかを照会し、関連している場合はビジネス例外をスローしま
         Integer count = dishMapper.countByCategoryId(id);
         if(count > 0){
             //現在のカテゴリには料理があるため、削除できません
             throw new DeletionNotAllowedException(MessageConstant.CATEGORY_BE_RELATED_BY_DISH);
         }
 
-        //現在のカテゴリがセットメニューに関連しているかどうかを照会し、関連している場合はビジネス例外をスローしま�?
+        //現在のカテゴリがセットメニューに関連しているかどうかを照会し、関連している場合はビジネス例外をスローしま
         count = setmealMapper.countByCategoryId(id);
         if(count > 0){
             //現在のカテゴリには料理があるため、削除できません
@@ -92,7 +92,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     /**
-     * カテゴリを編�?
+     * カテゴリを編
      * @param categoryDTO
      */
     public void update(CategoryDTO categoryDTO) {
@@ -122,7 +122,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     /**
-     * タイプに基づいてカテゴリを検�?
+     * タイプに基づいてカテゴリを検
      * @param type
      * @return
      */

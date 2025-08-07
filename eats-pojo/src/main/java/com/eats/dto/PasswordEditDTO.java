@@ -10,7 +10,7 @@ public class PasswordEditDTO implements Serializable {
     //従業員ID
     private Long empId;
 
-    //古いパスワー�?
+    //古いパスワー
     private String oldPassword;
 
     //新しいパスワード

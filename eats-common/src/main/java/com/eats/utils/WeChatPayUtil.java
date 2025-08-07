@@ -125,7 +125,7 @@ public class WeChatPayUtil {
     /**
      * JSAPI注文
      *
-     * @param orderNum    事業者注文番�?
+     * @param orderNum    事業者注文番
      * @param total       合計金額
      * @param description 商品説明
      * @param openid      WeChatユーザーのopenid
@@ -155,10 +155,10 @@ public class WeChatPayUtil {
     }
 
     /**
-     * ミニプログラム決�?
+     * ミニプログラム決
      *
-     * @param orderNum    事業者注文番�?
-     * @param total       金額、単位：�?
+     * @param orderNum    事業者注文番
+     * @param total       金額、単位：
      * @param description 商品説明
      * @param openid      WeChatユーザーのopenid
      * @return
@@ -166,7 +166,7 @@ public class WeChatPayUtil {
     public JSONObject pay(String orderNum, BigDecimal total, String description, String openid) throws Exception {
         //統一下單、前払い取引單を生成
         String bodyAsString = jsapi(orderNum, total, description, openid);
-        //返却結果を解�?
+        //返却結果を解
         JSONObject jsonObject = JSON.parseObject(bodyAsString);
         System.out.println(jsonObject);
 
@@ -208,10 +208,10 @@ public class WeChatPayUtil {
     /**
      * 返金申請
      *
-     * @param outTradeNo    事業者注文番�?
-     * @param outRefundNo   事業者返金番�?
-     * @param refund        返金�?
-     * @param total         元注文金�?
+     * @param outTradeNo    事業者注文番
+     * @param outRefundNo   事業者返金番
+     * @param refund        返金
+     * @param total         元注文金
      * @return
      */
     public String refund(String outTradeNo, String outRefundNo, BigDecimal refund, BigDecimal total) throws Exception {
@@ -229,7 +229,7 @@ public class WeChatPayUtil {
 
         String body = jsonObject.toJSONString();
 
-        //返金申請APIを呼び出�?
+        //返金申請APIを呼び出
         return post(REFUNDS, body);
     }
 }

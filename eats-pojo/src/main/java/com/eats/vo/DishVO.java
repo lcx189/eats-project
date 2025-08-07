@@ -18,7 +18,7 @@ import java.util.List;
 public class DishVO implements Serializable {
 
     private Long id;
-    //料理�?
+    //料理
     private String name;
     //料理カテゴリID
     private Long categoryId;
@@ -28,11 +28,11 @@ public class DishVO implements Serializable {
     private String image;
     //説明情報
     private String description;
-    //0: 販売停止 1: 販売�?
+    //0: 販売停止 1: 販売
     private Integer status;
     //更新時間
     private LocalDateTime updateTime;
-    //カテゴリ�?
+    //カテゴリ
     private String categoryName;
     //料理に関連するフレーバー
     private List<DishFlavor> flavors = new ArrayList<>();

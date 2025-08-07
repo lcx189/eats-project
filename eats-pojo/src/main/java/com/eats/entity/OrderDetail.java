@@ -33,7 +33,7 @@ public class OrderDetail implements Serializable {
     //セットメニューID
     private Long setmealId;
 
-    //フレーバ�?
+    //フレーバ
     private String dishFlavor;
 
     //数量

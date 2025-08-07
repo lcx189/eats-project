@@ -41,7 +41,7 @@ public class SpringDataRedisTest {
     }
 
     /**
-     * 操作哈希类型的数�?
+     * 操作哈希类型的数
      */
     @Test
     public void testHash(){
@@ -64,7 +64,7 @@ public class SpringDataRedisTest {
     }
 
     /**
-     * 操作列表类型的数�?
+     * 操作列表类型的数
      */
     @Test
     public void testList(){
@@ -84,7 +84,7 @@ public class SpringDataRedisTest {
     }
 
     /**
-     * 操作集合类型的数�?
+     * 操作集合类型的数
      */
     @Test
     public void testSet(){
@@ -110,7 +110,7 @@ public class SpringDataRedisTest {
     }
 
     /**
-     * 操作有序集合类型的数�?
+     * 操作有序集合类型的数
      */
     @Test
     public void testZset(){

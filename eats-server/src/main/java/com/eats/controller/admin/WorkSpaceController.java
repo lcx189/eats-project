@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 /**
- * ワークスペー�?
+ * ワークスペー
  */
 @RestController
 @RequestMapping("/admin/workspace")
@@ -29,11 +29,11 @@ public class WorkSpaceController {
     private WorkspaceService workspaceService;
 
     /**
-     * ワークスペースの本日データ照�?
+     * ワークスペースの本日データ照
      * @return
      */
     @GetMapping("/businessData")
-    @ApiOperation("ワークスペースの本日データ照�?")
+    @ApiOperation("ワークスペースの本日データ照")
     public Result<BusinessDataVO> businessData(){
         //当日の開始時間を取得
         LocalDateTime begin = LocalDateTime.now().with(LocalTime.MIN);
@@ -55,11 +55,11 @@ public class WorkSpaceController {
     }
 
     /**
-     * 料理概要を照�?
+     * 料理概要を照
      * @return
      */
     @GetMapping("/overviewDishes")
-    @ApiOperation("料理概要を照�?")
+    @ApiOperation("料理概要を照")
     public Result<DishOverViewVO> dishOverView(){
         return Result.success(workspaceService.getDishOverView());
     }

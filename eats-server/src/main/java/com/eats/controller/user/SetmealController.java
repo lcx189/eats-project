@@ -17,7 +17,7 @@ import java.util.List;
 
 @RestController("userSetmealController")
 @RequestMapping("/user/setmeal")
-@Api(tags = "C�?セットメニュー閲覧API")
+@Api(tags = "Cセットメニュー閲覧API")
 public class SetmealController {
     @Autowired
     private SetmealService setmealService;
@@ -41,7 +41,7 @@ public class SetmealController {
     }
 
     /**
-     * セットメニューIDに基づいて含まれる料理リストを検�?
+     * セットメニューIDに基づいて含まれる料理リストを検
      *
      * @param id
      * @return

@@ -11,7 +11,7 @@ import java.time.LocalDate;
 public interface ReportService {
 
     /**
-     * 指定された時間範囲内の売上データを統�?
+     * 指定された時間範囲内の売上データを統
      * @param begin
      * @param end
      * @return
@@ -19,7 +19,7 @@ public interface ReportService {
     TurnoverReportVO getTurnoverStatistics(LocalDate begin, LocalDate end);
 
     /**
-     * 指定された時間範囲内のユーザーデータを統�?
+     * 指定された時間範囲内のユーザーデータを統
      * @param begin
      * @param end
      * @return
@@ -27,7 +27,7 @@ public interface ReportService {
     UserReportVO getUserStatistics(LocalDate begin, LocalDate end);
 
     /**
-     * 指定された時間範囲内の注文データを統�?
+     * 指定された時間範囲内の注文データを統
      * @param begin
      * @param end
      * @return
@@ -35,7 +35,7 @@ public interface ReportService {
     OrderReportVO getOrderStatistics(LocalDate begin, LocalDate end);
 
     /**
-     * 指定された時間範囲内の売上ランキングトッ�?0を統�?
+     * 指定された時間範囲内の売上ランキングトッ0を統
      * @param begin
      * @param end
      * @return

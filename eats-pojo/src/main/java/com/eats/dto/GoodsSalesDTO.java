@@ -12,9 +12,9 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Builder
 public class GoodsSalesDTO implements Serializable {
-    //商品�?
+    //商品
     private String name;
 
-    //販売�?
+    //販売
     private Integer number;
 }

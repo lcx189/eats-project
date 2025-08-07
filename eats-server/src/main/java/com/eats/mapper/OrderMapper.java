@@ -28,13 +28,13 @@ public interface OrderMapper {
     Orders getByNumberAndUserId(String orderNumber, Long userId);
 
     /**
-     * 注文情報を編�?
+     * 注文情報を編
      * @param orders
      */
     void update(Orders orders);
 
     /**
-     * ページング条件検索、注文時間でソー�?
+     * ページング条件検索、注文時間でソー
      * @param ordersPageQueryDTO
      */
     Page<Orders> pageQuery(OrdersPageQueryDTO ordersPageQueryDTO);
@@ -47,7 +47,7 @@ public interface OrderMapper {
     Orders getById(Long id);
 
     /**
-     * ステータスに基づいて注文件数を統�?
+     * ステータスに基づいて注文件数を統
      * @param status
      */
     @Select("select count(id) from orders where status = #{status}")
@@ -63,7 +63,7 @@ public interface OrderMapper {
     List<Orders> getByStatusAndOrderTimeLT(Integer status, LocalDateTime orderTime);
 
     /**
-     * 動的条件に基づいて売上データを統�?
+     * 動的条件に基づいて売上データを統
      * @param map
      * @return
      */
@@ -77,7 +77,7 @@ public interface OrderMapper {
     Integer countByMap(Map map);
 
     /**
-     * 指定された時間範囲内の売上ランキングトッ�?0を統�?
+     * 指定された時間範囲内の売上ランキングトッ0を統
      * @param begin
      * @param end
      * @return

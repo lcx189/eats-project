@@ -10,7 +10,7 @@ public class EmployeePageQueryDTO implements Serializable {
     //従業員名
     private String name;
 
-    //ページ番�?
+    //ページ番
     private int page;
 
     //1ページあたりの表示レコード数

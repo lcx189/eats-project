@@ -27,7 +27,7 @@ public class AddressBookServiceImpl implements AddressBookService {
     }
 
     /**
-     * アドレスを追�?
+     * アドレスを追
      *
      * @param addressBook
      */
@@ -38,7 +38,7 @@ public class AddressBookServiceImpl implements AddressBookService {
     }
 
     /**
-     * IDに基づいて検�?
+     * IDに基づいて検
      *
      * @param id
      * @return
@@ -64,12 +64,12 @@ public class AddressBookServiceImpl implements AddressBookService {
      */
     @Transactional
     public void setDefault(AddressBook addressBook) {
-        //1、現在のユーザーのすべてのアドレスを非デフォルトアドレスに更�?update address_book set is_default = ? where user_id = ?
+        //1、現在のユーザーのすべてのアドレスを非デフォルトアドレスに更update address_book set is_default = ? where user_id = ?
         addressBook.setIsDefault(0);
         addressBook.setUserId(BaseContext.getCurrentId());
         addressBookMapper.updateIsDefaultByUserId(addressBook);
 
-        //2、現在のアドレスをデフォルトアドレスに更�?update address_book set is_default = ? where id = ?
+        //2、現在のアドレスをデフォルトアドレスに更update address_book set is_default = ? where id = ?
         addressBook.setIsDefault(1);
         addressBookMapper.update(addressBook);
     }

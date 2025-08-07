@@ -23,7 +23,7 @@ import java.time.LocalDateTime;
 public class AutoFillAspect {
 
     /**
-     * ポイントカッ�?
+     * ポイントカッ
      */
     @Pointcut("execution(* com.eats.mapper.*.*(..)) && @annotation(com.eats.annotation.AutoFill)")
     public void autoFillPointCut(){}
@@ -33,14 +33,14 @@ public class AutoFillAspect {
      */
     @Before("autoFillPointCut()")
     public void autoFill(JoinPoint joinPoint){
-        log.info("共通フィールドの自動補完を開始しま�?..");
+        log.info("共通フィールドの自動補完を開始しま..");
 
-        //現在インターセプトされているメソッドのデータベース操作タイプを取�?
-        MethodSignature signature = (MethodSignature) joinPoint.getSignature();//メソッドシグネチャオブジェク�?
-        AutoFill autoFill = signature.getMethod().getAnnotation(AutoFill.class);//メソッドのアノテーションオブジェクトを取�?
+        //現在インターセプトされているメソッドのデータベース操作タイプを取
+        MethodSignature signature = (MethodSignature) joinPoint.getSignature();//メソッドシグネチャオブジェク
+        AutoFill autoFill = signature.getMethod().getAnnotation(AutoFill.class);//メソッドのアノテーションオブジェクトを取
         OperationType operationType = autoFill.value();//データベース操作タイプを取得
 
-        //現在インターセプトされているメソッドのパラメータ（エンティティオブジェクト）を取�?
+        //現在インターセプトされているメソッドのパラメータ（エンティティオブジェクト）を取
         Object[] args = joinPoint.getArgs();
         if(args == null || args.length == 0){
             return;
@@ -48,7 +48,7 @@ public class AutoFillAspect {
 
         Object entity = args[0];
 
-        //割り当てるデータを準�?
+        //割り当てるデータを準
         LocalDateTime now = LocalDateTime.now();
         Long currentId = BaseContext.getCurrentId();
 

@@ -37,13 +37,13 @@ public class OrderController {
     }
 
     /**
-     * 注文支払�?
+     * 注文支払
      *
      * @param ordersPaymentDTO
      * @return
      */
     @PutMapping("/payment")
-    @ApiOperation("注文支払�?")
+    @ApiOperation("注文支払")
     public Result<OrderPaymentVO> payment(@RequestBody OrdersPaymentDTO ordersPaymentDTO) throws Exception {
         log.info("注文支払い：{}", ordersPaymentDTO);
         OrderPaymentVO orderPaymentVO = orderService.payment(ordersPaymentDTO);
@@ -56,7 +56,7 @@ public class OrderController {
      *
      * @param page
      * @param pageSize
-     * @param status   注文ステータ�?1:支払い待�?2:受注待ち 3:受注済み 4:配達�?5:完了 6:キャンセル済�?
+     * @param status   注文ステータ1:支払い待2:受注待ち 3:受注済み 4:配達5:完了 6:キャンセル済
      * @return
      */
     @GetMapping("/historyOrders")
@@ -67,20 +67,20 @@ public class OrderController {
     }
 
     /**
-     * 注文詳細を照�?
+     * 注文詳細を照
      *
      * @param id
      * @return
      */
     @GetMapping("/orderDetail/{id}")
-    @ApiOperation("注文詳細を照�?")
+    @ApiOperation("注文詳細を照")
     public Result<OrderVO> details(@PathVariable("id") Long id) {
         OrderVO orderVO = orderService.details(id);
         return Result.success(orderVO);
     }
 
     /**
-     * ユーザーが注文をキャンセ�?
+     * ユーザーが注文をキャンセ
      *
      * @return
      */
@@ -92,25 +92,25 @@ public class OrderController {
     }
 
     /**
-     * もう一度注�?
+     * もう一度注
      *
      * @param id
      * @return
      */
     @PostMapping("/repetition/{id}")
-    @ApiOperation("もう一度注�?")
+    @ApiOperation("もう一度注")
     public Result repetition(@PathVariable Long id) {
         orderService.repetition(id);
         return Result.success();
     }
 
     /**
-     * 顧客からの督�?
+     * 顧客からの督
      * @param id
      * @return
      */
     @GetMapping("/reminder/{id}")
-    @ApiOperation("顧客からの督�?")
+    @ApiOperation("顧客からの督")
     public Result reminder(@PathVariable("id") Long id){
         orderService.reminder(id);
         return Result.success();

@@ -23,7 +23,7 @@ mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.eats.entity
   configuration:
-    #キャメルケース命名を有効にす�?
+    #キャメルケース命名を有効にす
     map-underscore-to-camel-case: true
 
 logging:
@@ -40,7 +40,7 @@ sky:
     admin-secret-key: itcast
     # JWTの有効期限を設定
     admin-ttl: 7200000
-    # フロントエンドから渡されるトークン名を設�?
+    # フロントエンドから渡されるトークン名を設
     admin-token-name: token
     user-secret-key: itheima
     user-ttl: 7200000
@@ -61,6 +61,6 @@ sky:
     notifyUrl: ${sky.wechat.notifyUrl}
     refundNotifyUrl: ${sky.wechat.refundNotifyUrl}
   shop:
-    address: 東京都新宿区西新�?-8-1
+    address: 東京都新宿区西新-8-1
   baidu:
     ak: your-ak

@@ -41,7 +41,7 @@ public class OrderController {
     }
 
     /**
-     * 各ステータスの注文件数統�?
+     * 各ステータスの注文件数統
      *
      * @return
      */
@@ -102,7 +102,7 @@ public class OrderController {
     }
 
     /**
-     * 注文を配�?
+     * 注文を配
      *
      * @return
      */
@@ -114,12 +114,12 @@ public class OrderController {
     }
 
     /**
-     * 注文を完�?
+     * 注文を完
      *
      * @return
      */
     @PutMapping("/complete/{id}")
-    @ApiOperation("注文を完�?")
+    @ApiOperation("注文を完")
     public Result complete(@PathVariable("id") Long id) {
         orderService.complete(id);
         return Result.success();

@@ -16,7 +16,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class HttpClientTest {
 
     /**
-     * 测试通过httpclient发送GET方式的请�?
+     * 测试通过httpclient发送GET方式的请
      */
     @Test
     public void testGET() throws Exception{
@@ -44,7 +44,7 @@ public class HttpClientTest {
 
 
     /**
-     * 测试通过httpclient发送POST方式的请�?
+     * 测试通过httpclient发送POST方式的请
      */
     @Test
     public void testPOST() throws Exception{
@@ -65,12 +65,12 @@ public class HttpClientTest {
         entity.setContentType("application/json");
         httpPost.setEntity(entity);
 
-        //发送请�?
+        //发送请
         CloseableHttpResponse response = httpClient.execute(httpPost);
 
         //解析返回结果
         int statusCode = response.getStatusLine().getStatusCode();
-        System.out.println("响应码为�?" + statusCode);
+        System.out.println("响应码为" + statusCode);
 
         HttpEntity entity1 = response.getEntity();
         String body = EntityUtils.toString(entity1);

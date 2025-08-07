@@ -1,7 +1,7 @@
 package com.eats.enumeration;
 
 /**
- * データベース操作タイ�?
+ * データベース操作タイ
  */
 public enum OperationType {
 

@@ -27,7 +27,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * セットメニュービジネス実�?
+ * セットメニュービジネス実
  */
 @Service
 @Slf4j
@@ -41,7 +41,7 @@ public class SetmealServiceImpl implements SetmealService {
     private DishMapper dishMapper;
 
     /**
-     * セットメニューを追加し、同時にセットメニューと料理の関連関係を保存する必要がありま�?
+     * セットメニューを追加し、同時にセットメニューと料理の関連関係を保存する必要がありま
      *
      * @param setmealDTO
      */
@@ -53,7 +53,7 @@ public class SetmealServiceImpl implements SetmealService {
         //セットメニューテーブルにデータを挿入
         setmealMapper.insert(setmeal);
 
-        //生成されたセットメニューIDを取�?
+        //生成されたセットメニューIDを取
         Long setmealId = setmeal.getId();
 
         List<SetmealDish> setmealDishes = setmealDTO.getSetmealDishes();
@@ -66,7 +66,7 @@ public class SetmealServiceImpl implements SetmealService {
     }
 
     /**
-     * ページング検�?
+     * ページング検
      *
      * @param setmealPageQueryDTO
      * @return
@@ -81,7 +81,7 @@ public class SetmealServiceImpl implements SetmealService {
     }
 
     /**
-     * セットメニューの一括削�?
+     * セットメニューの一括削
      *
      * @param ids
      */
@@ -90,15 +90,15 @@ public class SetmealServiceImpl implements SetmealService {
         ids.forEach(id -> {
             Setmeal setmeal = setmealMapper.getById(id);
             if (StatusConstant.ENABLE == setmeal.getStatus()) {
-                //販売中のセットメニューは削除できませ�?
+                //販売中のセットメニューは削除できませ
                 throw new DeletionNotAllowedException(MessageConstant.SETMEAL_ON_SALE);
             }
         });
 
         ids.forEach(setmealId -> {
-            //セットメニューテーブルからデータを削�?
+            //セットメニューテーブルからデータを削
             setmealMapper.deleteById(setmealId);
-            //セットメニューと料理の関係テーブルからデータを削�?
+            //セットメニューと料理の関係テーブルからデータを削
             setmealDishMapper.deleteBySetmealId(setmealId);
         });
     }
@@ -124,25 +124,25 @@ public class SetmealServiceImpl implements SetmealService {
         Setmeal setmeal = new Setmeal();
         BeanUtils.copyProperties(setmealDTO, setmeal);
 
-        //1、セットメニューテーブルを編集、updateを実�?
+        //1、セットメニューテーブルを編集、updateを実
         setmealMapper.update(setmeal);
 
         //セットメニューID
         Long setmealId = setmealDTO.getId();
 
-        //2、セットメニューと料理の関連関係を削除、setmeal_dishテーブルを操作、deleteを実�?
+        //2、セットメニューと料理の関連関係を削除、setmeal_dishテーブルを操作、deleteを実
         setmealDishMapper.deleteBySetmealId(setmealId);
 
         List<SetmealDish> setmealDishes = setmealDTO.getSetmealDishes();
         setmealDishes.forEach(setmealDish -> {
             setmealDish.setSetmealId(setmealId);
         });
-        //3、セットメニューと料理の関連関係を再挿入、setmeal_dishテーブルを操作、insertを実�?
+        //3、セットメニューと料理の関連関係を再挿入、setmeal_dishテーブルを操作、insertを実
         setmealDishMapper.insertBatch(setmealDishes);
     }
 
     /**
-     * セットメニューの販売開始・停�?
+     * セットメニューの販売開始・停
      *
      * @param status
      * @param id
@@ -179,7 +179,7 @@ public class SetmealServiceImpl implements SetmealService {
     }
 
     /**
-     * IDに基づいて料理オプションを検�?
+     * IDに基づいて料理オプションを検
      * @param id
      * @return
      */

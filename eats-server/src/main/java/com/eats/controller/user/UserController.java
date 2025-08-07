@@ -43,7 +43,7 @@ public class UserController {
         //WeChatログイン
         User user = userService.wxLogin(userLoginDTO);
 
-        //WeChatユーザーのためにJWTトークンを生�?
+        //WeChatユーザーのためにJWTトークンを生
         Map<String, Object> claims = new HashMap<>();
         claims.put(JwtClaimsConstant.USER_ID,user.getId());
         String token = JwtUtil.createJWT(jwtProperties.getUserSecretKey(), jwtProperties.getUserTtl(), claims);

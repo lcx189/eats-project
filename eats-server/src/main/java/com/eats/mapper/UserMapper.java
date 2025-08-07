@@ -27,7 +27,7 @@ public interface UserMapper {
     User getById(Long userId);
 
     /**
-     * 動的条件に基づいてユーザー数を統�?
+     * 動的条件に基づいてユーザー数を統
      * @param map
      * @return
      */

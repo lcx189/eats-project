@@ -24,7 +24,7 @@ public interface CategoryMapper {
     void insert(Category category);
 
     /**
-     * ページング検�?
+     * ページング検
      * @param categoryPageQueryDTO
      * @return
      */
@@ -45,7 +45,7 @@ public interface CategoryMapper {
     void update(Category category);
 
     /**
-     * タイプに基づいてカテゴリを検�?
+     * タイプに基づいてカテゴリを検
      * @param type
      * @return
      */

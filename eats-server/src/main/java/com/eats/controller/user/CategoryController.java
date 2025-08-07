@@ -13,19 +13,19 @@ import java.util.List;
 
 @RestController("userCategoryController")
 @RequestMapping("/user/category")
-@Api(tags = "C�?カテゴリAPI")
+@Api(tags = "CカテゴリAPI")
 public class CategoryController {
 
     @Autowired
     private CategoryService categoryService;
 
     /**
-     * カテゴリを照�?
+     * カテゴリを照
      * @param type
      * @return
      */
     @GetMapping("/list")
-    @ApiOperation("カテゴリを照�?")
+    @ApiOperation("カテゴリを照")
     public Result<List<Category>> list(Integer type) {
         List<Category> list = categoryService.list(type);
         return Result.success(list);

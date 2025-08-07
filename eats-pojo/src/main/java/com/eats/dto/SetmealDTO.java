@@ -18,10 +18,10 @@ public class SetmealDTO implements Serializable {
     //セットメニュー名
     private String name;
 
-    //セットメニュー価�?
+    //セットメニュー価
     private BigDecimal price;
 
-    //ステータ�?0:無効 1:有効
+    //ステータ0:無効 1:有効
     private Integer status;
 
     //説明情報
@@ -30,7 +30,7 @@ public class SetmealDTO implements Serializable {
     //画像
     private String image;
 
-    //セットメニューと料理の関�?
+    //セットメニューと料理の関
     private List<SetmealDish> setmealDishes = new ArrayList<>();
 
 }

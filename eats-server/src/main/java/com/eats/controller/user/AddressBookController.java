@@ -33,7 +33,7 @@ public class AddressBookController {
     }
 
     /**
-     * アドレスを追�?
+     * アドレスを追
      *
      * @param addressBook
      * @return
