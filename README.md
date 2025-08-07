@@ -44,7 +44,7 @@
 
 1.  **リポジトリをクローンします。**
     ```bash
-    git clone https://github.com/lcx189/eats-project
+    git clone https://github.com/lcx189/eats-project.git
     ```
 
 2.  **設定ファイルを編集します。**
