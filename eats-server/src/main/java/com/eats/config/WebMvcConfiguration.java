@@ -22,7 +22,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import java.util.List;
 
 /**
- * 設定クラス、Web層関連コンポーネントを登録
+ * 設定クラス、Web層関連コンポーネントを登
  */
 @Configuration
 @Slf4j
@@ -51,7 +51,7 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
 
     @Bean
     public Docket docket1(){
-        log.info("APIドキュメントの生成を準備しています...");
+        log.info("APIドキュメントの生成を準備していま..");
         ApiInfo apiInfo = new ApiInfoBuilder()
                 .title("EatsプロジェクトAPIドキュメント")
                 .version("2.0")
@@ -72,7 +72,7 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
 
     @Bean
     public Docket docket2(){
-        log.info("APIドキュメントの生成を準備しています...");
+        log.info("APIドキュメントの生成を準備していま..");
         ApiInfo apiInfo = new ApiInfoBuilder()
                 .title("Eats出前プロジェクトAPIドキュメント")
                 .version("2.0")
@@ -102,7 +102,7 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
     }
 
     /**
-     * Spring MVCフレームワークのメッセージコンバータを拡大
+     * Spring MVCフレームワークのメッセージコンバータを拡
      * @param converters
      */
     protected void extendMessageConverters(List<HttpMessageConverter<?>> converters) {

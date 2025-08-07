@@ -5,7 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationProperties(prefix = "eats.jwt")
+@ConfigurationProperties(prefix = "sky.jwt")
 @Data
 public class JwtProperties {
 
