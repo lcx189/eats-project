@@ -1,5 +1,7 @@
     # Compiled class file
-    /target/
+    eats-server/target/
+    eats-pojo/target/
+    eats-common/target/
     /build/
 
     # Log file
