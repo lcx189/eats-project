@@ -12,14 +12,14 @@ import java.util.List;
 public interface SetmealService {
 
     /**
-     * セットメニューを追加し、同時にセットメニューと料理の関連関係を保存する必要がありま�?
+     * セットメニューを追加し、同時にセットメニューと料理の関連関係を保存する必要がありま
      *
      * @param setmealDTO
      */
     void saveWithDish(SetmealDTO setmealDTO);
 
     /**
-     * ページング検�?
+     * ページング検
      *
      * @param setmealPageQueryDTO
      * @return
@@ -27,14 +27,14 @@ public interface SetmealService {
     PageResult pageQuery(SetmealPageQueryDTO setmealPageQueryDTO);
 
     /**
-     * セットメニューの一括削�?
+     * セットメニューの一括削
      *
      * @param ids
      */
     void deleteBatch(List<Long> ids);
 
     /**
-     * IDに基づいてセットメニューと関連する料理データを検�?
+     * IDに基づいてセットメニューと関連する料理データを検
      *
      * @param id
      * @return
@@ -49,7 +49,7 @@ public interface SetmealService {
     void update(SetmealDTO setmealDTO);
 
     /**
-     * セットメニューの販売開始・停�?
+     * セットメニューの販売開始・停
      *
      * @param status
      * @param id
@@ -64,7 +64,7 @@ public interface SetmealService {
     List<Setmeal> list(Setmeal setmeal);
 
     /**
-     * IDに基づいて料理オプションを検�?
+     * IDに基づいて料理オプションを検
      * @param id
      * @return
      */

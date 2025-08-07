@@ -42,17 +42,17 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
         List<ShoppingCart> list = shoppingCartMapper.list(shoppingCart);
 
-        //すでに存在する場合、数量を1増やすだけで�?
+        //すでに存在する場合、数量を1増やすだけで
         if(list != null && list.size() > 0){
             ShoppingCart cart = list.get(0);
             cart.setNumber(cart.getNumber() + 1);//update shopping_cart set number = ? where id = ?
             shoppingCartMapper.updateNumberById(cart);
         }else {
             //存在しない場合、ショッピングカートデータを1件挿入する必要があります
-            //今回ショッピングカートに追加されたのが料理かセットメニューかを判�?
+            //今回ショッピングカートに追加されたのが料理かセットメニューかを判
             Long dishId = shoppingCartDTO.getDishId();
             if(dishId != null){
-                //今回ショッピングカートに追加されたのは料理で�?
+                //今回ショッピングカートに追加されたのは料理で
                 Dish dish = dishMapper.getById(dishId);
                 shoppingCart.setName(dish.getName());
                 shoppingCart.setImage(dish.getImage());
@@ -76,7 +76,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
      * @return
      */
     public List<ShoppingCart> showShoppingCart() {
-        //現在のWeChatユーザーIDを取�?
+        //現在のWeChatユーザーIDを取
         Long userId = BaseContext.getCurrentId();
         ShoppingCart shoppingCart = ShoppingCart.builder()
                 .userId(userId)
@@ -89,19 +89,19 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
      * ショッピングカートを空にする
      */
     public void cleanShoppingCart() {
-        //現在のWeChatユーザーIDを取�?
+        //現在のWeChatユーザーIDを取
         Long userId = BaseContext.getCurrentId();
         shoppingCartMapper.deleteByUserId(userId);
     }
 
     /**
-     * ショッピングカートから商品を一つ削�?
+     * ショッピングカートから商品を一つ削
      * @param shoppingCartDTO
      */
     public void subShoppingCart(ShoppingCartDTO shoppingCartDTO) {
         ShoppingCart shoppingCart = new ShoppingCart();
         BeanUtils.copyProperties(shoppingCartDTO,shoppingCart);
-        //検索条件を設定し、現在ログインしているユーザーのショッピングカートデータを照�?
+        //検索条件を設定し、現在ログインしているユーザーのショッピングカートデータを照
         shoppingCart.setUserId(BaseContext.getCurrentId());
 
         List<ShoppingCart> list = shoppingCartMapper.list(shoppingCart);
@@ -111,7 +111,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
             Integer number = shoppingCart.getNumber();
             if(number == 1){
-                //現在の商品のショッピングカートでの数量が1の場合、現在のレコードを直接削�?
+                //現在の商品のショッピングカートでの数量が1の場合、現在のレコードを直接削
                 shoppingCartMapper.deleteById(shoppingCart.getId());
             }else {
                 //現在の商品のショッピングカートでの数量が1でない場合、数量を編集するだけです

@@ -1,7 +1,7 @@
 package com.eats.exception;
 
 /**
- * セットメニューの有効化失敗例�?
+ * セットメニュ一の有効化失敗例
  */
 public class SetmealEnableFailedException extends BaseException {
 

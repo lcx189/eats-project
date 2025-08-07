@@ -13,7 +13,7 @@ import java.util.Date;
 public class MyTask {
 
     /**
-     * スケジュールタス�?5秒ごとにトリガー
+     * スケジュールタス5秒ごとにトリガー
      */
     //@Scheduled(cron = "0/5 * * * * ?")
     public void executeTask(){

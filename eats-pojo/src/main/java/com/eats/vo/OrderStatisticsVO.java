@@ -11,6 +11,6 @@ public class OrderStatisticsVO implements Serializable {
     //配達待ち件数
     private Integer confirmed;
 
-    //配達中件�?
+    //配達中件
     private Integer deliveryInProgress;
 }

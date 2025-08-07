@@ -31,13 +31,13 @@ public class WebSocketServer {
     }
 
     /**
-     * クライアントメッセージ受信後に呼び出されるメソッ�?
+     * クライアントメッセージ受信後に呼び出されるメソッ
      *
      * @param message クライアントから送信されたメッセージ
      */
     @OnMessage
     public void onMessage(String message, @PathParam("sid") String sid) {
-        System.out.println("クライアントからのメッセージを受信：" + sid + "の情�?" + message);
+        System.out.println("クライアントからのメッセージを受信：" + sid + "の情" + message);
     }
 
     /**

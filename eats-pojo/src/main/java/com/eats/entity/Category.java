@@ -17,16 +17,16 @@ public class Category implements Serializable {
 
     private Long id;
 
-    //タイ�? 1:料理カテゴリ 2:セットメニューカテゴ�?
+    //タイ 1:料理カテゴリ 2:セットメニューカテゴ
     private Integer type;
 
-    //カテゴリ�?
+    //カテゴリ
     private String name;
 
     //順序
     private Integer sort;
 
-    //カテゴリステータ�?0:無効 1:有効
+    //カテゴリステータ0:無効 1:有効
     private Integer status;
 
     //作成時間
@@ -35,9 +35,9 @@ public class Category implements Serializable {
     //更新時間
     private LocalDateTime updateTime;
 
-    //作成�?
+    //作成
     private Long createUser;
 
-    //更新�?
+    //更新
     private Long updateUser;
 }

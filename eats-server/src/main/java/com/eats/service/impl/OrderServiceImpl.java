@@ -65,17 +65,17 @@ public class OrderServiceImpl implements OrderService {
     @Transactional
     public OrderSubmitVO submitOrder(OrdersSubmitDTO ordersSubmitDTO) {
 
-        //1. 各種の業務例外を処理（アドレス帳が空、ショッピングカートが空�?
+        //1. 各種の業務例外を処理（アドレス帳が空、ショッピングカートが空
         AddressBook addressBook = addressBookMapper.getById(ordersSubmitDTO.getAddressBookId());
         if(addressBook == null){
             //業務例外をスロー
             throw new AddressBookBusinessException(MessageConstant.ADDRESS_BOOK_IS_NULL);
         }
 
-        //ユーザーの配送先住所が配送範囲外かどうかを確�?
+        //ユーザーの配送先住所が配送範囲外かどうかを確
         //checkOutOfRange(addressBook.getCityName() + addressBook.getDistrictName() + addressBook.getDetail());
 
-        //現在のユーザーのショッピングカートデータを照�?
+        //現在のユーザーのショッピングカートデータを照
         Long userId = BaseContext.getCurrentId();
 
         ShoppingCart shoppingCart = new ShoppingCart();
@@ -87,7 +87,7 @@ public class OrderServiceImpl implements OrderService {
             throw new ShoppingCartBusinessException(MessageConstant.SHOPPING_CART_IS_NULL);
         }
 
-        //2. 注文テーブル�?件のデータを挿入
+        //2. 注文テーブル件のデータを挿入
         Orders orders = new Orders();
         BeanUtils.copyProperties(ordersSubmitDTO, orders);
         orders.setOrderTime(LocalDateTime.now());
@@ -106,7 +106,7 @@ public class OrderServiceImpl implements OrderService {
         for (ShoppingCart cart : shoppingCartList) {
             OrderDetail orderDetail = new OrderDetail();//注文詳細
             BeanUtils.copyProperties(cart, orderDetail);
-            orderDetail.setOrderId(orders.getId());//現在の注文詳細に関連する注文IDを設�?
+            orderDetail.setOrderId(orders.getId());//現在の注文詳細に関連する注文IDを設
             orderDetailList.add(orderDetail);
         }
 
@@ -115,7 +115,7 @@ public class OrderServiceImpl implements OrderService {
         //4. 現在のユーザーのショッピングカートデータをクリア
         shoppingCartMapper.deleteByUserId(userId);
 
-        //5. VOをカプセル化して結果を返�?
+        //5. VOをカプセル化して結果を返
         OrderSubmitVO orderSubmitVO = OrderSubmitVO.builder()
                 .id(orders.getId())
                 .orderTime(orders.getOrderTime())
@@ -133,7 +133,7 @@ public class OrderServiceImpl implements OrderService {
     private String ak;
 
     /**
-     * 顧客の配送先住所が配送範囲外かどうかを確�?
+     * 顧客の配送先住所が配送範囲外かどうかを確
      * @param address
      */
     private void checkOutOfRange(String address) {
@@ -150,11 +150,11 @@ public class OrderServiceImpl implements OrderService {
             throw new OrderBusinessException("店舗住所の解析に失敗しました");
         }
 
-        //データ解�?
+        //データ解
         JSONObject location = jsonObject.getJSONObject("result").getJSONObject("location");
         String lat = location.getString("lat");
         String lng = location.getString("lng");
-        //店舗の緯度経度座�?
+        //店舗の緯度経度座
         String shopLngLat = lat + "," + lng;
 
         map.put("address",address);
@@ -166,18 +166,18 @@ public class OrderServiceImpl implements OrderService {
             throw new OrderBusinessException("配送先住所の解析に失敗しました");
         }
 
-        //データ解�?
+        //データ解
         location = jsonObject.getJSONObject("result").getJSONObject("location");
         lat = location.getString("lat");
         lng = location.getString("lng");
-        //ユーザーの配送先住所の緯度経度座�?
+        //ユーザーの配送先住所の緯度経度座
         String userLngLat = lat + "," + lng;
 
         map.put("origin",shopLngLat);
         map.put("destination",userLngLat);
         map.put("steps_info","0");
 
-        //ルート計�?
+        //ルート計
         String json = HttpClientUtil.doGet("https://api.map.baidu.com/directionlite/v1/driving", map);
 
         jsonObject = JSON.parseObject(json);
@@ -185,19 +185,19 @@ public class OrderServiceImpl implements OrderService {
             throw new OrderBusinessException("配送ルートの計画に失敗しました");
         }
 
-        //データ解�?
+        //データ解
         JSONObject result = jsonObject.getJSONObject("result");
         JSONArray jsonArray = (JSONArray) result.get("routes");
         Integer distance = (Integer) ((JSONObject) jsonArray.get(0)).get("distance");
 
         if(distance > 5000){
-            //配送距離が5000メートルを超えていま�?
+            //配送距離が5000メートルを超えていま
             throw new OrderBusinessException("配送範囲外です");
         }
     }
 
     /**
-     * 注文支払�?
+     * 注文支払
      *
      * @param ordersPaymentDTO
      * @return
@@ -209,9 +209,9 @@ public class OrderServiceImpl implements OrderService {
 
         //WeChat Pay APIを呼び出し、前払い取引單を生成
         JSONObject jsonObject = weChatPayUtil.pay(
-                ordersPaymentDTO.getOrderNumber(), //事業者注文番�?
-                new BigDecimal(0.01), //支払金額、単位：�?
-                "スカイテイクアウト注�?", //商品説明
+                ordersPaymentDTO.getOrderNumber(), //事業者注文番
+                new BigDecimal(0.01), //支払金額、単位：
+                "スカイテイクアウト注", //商品説明
                 user.getOpenid() //WeChatユーザーのopenid
         );
 
@@ -226,7 +226,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     /**
-     * 支払い成功、注文ステータスを更�?
+     * 支払い成功、注文ステータスを更
      *
      * @param outTradeNo
      */
@@ -247,9 +247,9 @@ public class OrderServiceImpl implements OrderService {
 
         orderMapper.update(orders);
 
-        //WebSocketを介してクライアントブラウザにメッセージをプッシ�?type orderId content
+        //WebSocketを介してクライアントブラウザにメッセージをプッシtype orderId content
         Map map = new HashMap();
-        map.put("type",1); // 1は新規注文通知�?は顧客からの督促
+        map.put("type",1); // 1は新規注文通知は顧客からの督促
         map.put("orderId",ordersDB.getId());
         map.put("content","注文番号" + outTradeNo);
 
@@ -258,7 +258,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     /**
-     * ユーザー側注文のページング検�?
+     * ユーザー側注文のページング検
      *
      * @param pageNum
      * @param pageSize
@@ -273,7 +273,7 @@ public class OrderServiceImpl implements OrderService {
         ordersPageQueryDTO.setUserId(BaseContext.getCurrentId());
         ordersPageQueryDTO.setStatus(status);
 
-        // ページング条件検�?
+        // ページング条件検
         Page<Orders> page = orderMapper.pageQuery(ordersPageQueryDTO);
 
         List<OrderVO> list = new ArrayList();
@@ -283,7 +283,7 @@ public class OrderServiceImpl implements OrderService {
             for (Orders orders : page) {
                 Long orderId = orders.getId();// 注文ID
 
-                // 注文詳細を照�?
+                // 注文詳細を照
                 List<OrderDetail> orderDetails = orderDetailMapper.getByOrderId(orderId);
 
                 OrderVO orderVO = new OrderVO();
@@ -297,7 +297,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     /**
-     * 注文詳細を照�?
+     * 注文詳細を照
      *
      * @param id
      * @return
@@ -306,7 +306,7 @@ public class OrderServiceImpl implements OrderService {
         // IDに基づいて注文を検索
         Orders orders = orderMapper.getById(id);
 
-        // この注文に対応する料�?セットメニュー詳細を照会
+        // この注文に対応する料セットメニュー詳細を照会
         List<OrderDetail> orderDetailList = orderDetailMapper.getByOrderId(orders.getId());
 
         // この注文とその詳細をOrderVOにカプセル化して返す
@@ -318,7 +318,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     /**
-     * ユーザーが注文をキャンセ�?
+     * ユーザーが注文をキャンセ
      *
      * @param id
      */
@@ -331,7 +331,7 @@ public class OrderServiceImpl implements OrderService {
             throw new OrderBusinessException(MessageConstant.ORDER_NOT_FOUND);
         }
 
-        //注文ステータ�?1:支払い待�?2:受注待ち 3:受注済み 4:配達�?5:完了 6:キャンセル済�?
+        //注文ステータ1:支払い待2:受注待ち 3:受注済み 4:配達5:完了 6:キャンセル済
         if (ordersDB.getStatus() > 2) {
             throw new OrderBusinessException(MessageConstant.ORDER_STATUS_ERROR);
         }
@@ -341,18 +341,18 @@ public class OrderServiceImpl implements OrderService {
 
         // 注文が受注待ちの状態でキャンセルされた場合、返金が必要です
         if (ordersDB.getStatus().equals(Orders.TO_BE_CONFIRMED)) {
-            //WeChat Pay返金APIを呼び出�?
+            //WeChat Pay返金APIを呼び出
             weChatPayUtil.refund(
-                    ordersDB.getNumber(), //事業者注文番�?
-                    ordersDB.getNumber(), //事業者返金番�?
-                    new BigDecimal(0.01),//返金額、単位：�?
-                    new BigDecimal(0.01));//元注文金�?
+                    ordersDB.getNumber(), //事業者注文番
+                    ordersDB.getNumber(), //事業者返金番
+                    new BigDecimal(0.01),//返金額、単位：
+                    new BigDecimal(0.01));//元注文金
 
             //支払ステータスを「返金」に更新
             orders.setPayStatus(Orders.REFUND);
         }
 
-        // 注文ステータス、キャンセル理由、キャンセル日時を更�?
+        // 注文ステータス、キャンセル理由、キャンセル日時を更
         orders.setStatus(Orders.CANCELLED);
         orders.setCancelReason("ユーザーキャンセル");
         orders.setCancelTime(LocalDateTime.now());
@@ -360,18 +360,18 @@ public class OrderServiceImpl implements OrderService {
     }
 
     /**
-     * もう一度注�?
+     * もう一度注
      *
      * @param id
      */
     public void repetition(Long id) {
-        // 現在のユーザーIDを照�?
+        // 現在のユーザーIDを照
         Long userId = BaseContext.getCurrentId();
 
-        // 注文IDに基づいて現在の注文詳細を照�?
+        // 注文IDに基づいて現在の注文詳細を照
         List<OrderDetail> orderDetailList = orderDetailMapper.getByOrderId(id);
 
-        // 注文詳細オブジェクトをショッピングカートオブジェクトに変�?
+        // 注文詳細オブジェクトをショッピングカートオブジェクトに変
         List<ShoppingCart> shoppingCartList = orderDetailList.stream().map(x -> {
             ShoppingCart shoppingCart = new ShoppingCart();
 
@@ -383,7 +383,7 @@ public class OrderServiceImpl implements OrderService {
             return shoppingCart;
         }).collect(Collectors.toList());
 
-        // ショッピングカートオブジェクトをデータベースに一括追�?
+        // ショッピングカートオブジェクトをデータベースに一括追
         shoppingCartMapper.insertBatch(shoppingCartList);
     }
 
@@ -416,7 +416,7 @@ public class OrderServiceImpl implements OrderService {
                 BeanUtils.copyProperties(orders, orderVO);
                 String orderDishes = getOrderDishesStr(orders);
 
-                // 注文料理情報をorderVOにカプセル化し、orderVOListに追�?
+                // 注文料理情報をorderVOにカプセル化し、orderVOListに追
                 orderVO.setOrderDishes(orderDishes);
                 orderVOList.add(orderVO);
             }
@@ -425,7 +425,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     /**
-     * 注文IDに基づいて料理情報文字列を取�?
+     * 注文IDに基づいて料理情報文字列を取
      *
      * @param orders
      * @return
@@ -445,7 +445,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     /**
-     * 各ステータスの注文件数統�?
+     * 各ステータスの注文件数統
      *
      * @return
      */
@@ -486,12 +486,12 @@ public class OrderServiceImpl implements OrderService {
         // IDに基づいて注文を検索
         Orders ordersDB = orderMapper.getById(ordersRejectionDTO.getId());
 
-        // 注文が存在し、かつステータス�?（受注待ち）の場合のみ受注拒否が可能
+        // 注文が存在し、かつステータス（受注待ち）の場合のみ受注拒否が可能
         if (ordersDB == null || !ordersDB.getStatus().equals(Orders.TO_BE_CONFIRMED)) {
             throw new OrderBusinessException(MessageConstant.ORDER_STATUS_ERROR);
         }
 
-        //支払ステータ�?
+        //支払ステータ
         Integer payStatus = ordersDB.getPayStatus();
         if (payStatus == Orders.PAID) {
             //ユーザーは支払い済みのため、返金が必要です
@@ -503,7 +503,7 @@ public class OrderServiceImpl implements OrderService {
             log.info("返金申請：{}", refund);
         }
 
-        // 受注拒否には返金が必要、注文IDに基づいて注文ステータス、拒否理由、キャンセル日時を更�?
+        // 受注拒否には返金が必要、注文IDに基づいて注文ステータス、拒否理由、キャンセル日時を更
         Orders orders = new Orders();
         orders.setId(ordersDB.getId());
         orders.setStatus(Orders.CANCELLED);
@@ -514,7 +514,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     /**
-     * 店舗が注文をキャンセ�?
+     * 店舗が注文をキャンセ
      *
      * @param ordersCancelDTO
      */
@@ -522,7 +522,7 @@ public class OrderServiceImpl implements OrderService {
         // IDに基づいて注文を検索
         Orders ordersDB = orderMapper.getById(ordersCancelDTO.getId());
 
-        //支払ステータ�?
+        //支払ステータ
         Integer payStatus = ordersDB.getPayStatus();
         if (payStatus == 1) {
             //ユーザーは支払い済みのため、返金が必要です
@@ -534,7 +534,7 @@ public class OrderServiceImpl implements OrderService {
             log.info("返金申請：{}", refund);
         }
 
-        // 管理側からの注文キャンセルには返金が必要、注文IDに基づいて注文ステータス、キャンセル理由、キャンセル日時を更�?
+        // 管理側からの注文キャンセルには返金が必要、注文IDに基づいて注文ステータス、キャンセル理由、キャンセル日時を更
         Orders orders = new Orders();
         orders.setId(ordersCancelDTO.getId());
         orders.setStatus(Orders.CANCELLED);
@@ -544,7 +544,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     /**
-     * 注文を配�?
+     * 注文を配
      *
      * @param id
      */
@@ -552,21 +552,21 @@ public class OrderServiceImpl implements OrderService {
         // IDに基づいて注文を検索
         Orders ordersDB = orderMapper.getById(id);
 
-        // 注文が存在し、かつステータス�?であることを検証
+        // 注文が存在し、かつステータスであることを検証
         if (ordersDB == null || !ordersDB.getStatus().equals(Orders.CONFIRMED)) {
             throw new OrderBusinessException(MessageConstant.ORDER_STATUS_ERROR);
         }
 
         Orders orders = new Orders();
         orders.setId(ordersDB.getId());
-        // 注文ステータスを更新、ステータスを配達中に変�?
+        // 注文ステータスを更新、ステータスを配達中に変
         orders.setStatus(Orders.DELIVERY_IN_PROGRESS);
 
         orderMapper.update(orders);
     }
 
     /**
-     * 注文を完�?
+     * 注文を完
      *
      * @param id
      */
@@ -574,7 +574,7 @@ public class OrderServiceImpl implements OrderService {
         // IDに基づいて注文を検索
         Orders ordersDB = orderMapper.getById(id);
 
-        // 注文が存在し、かつステータス�?であることを検証
+        // 注文が存在し、かつステータスであることを検証
         if (ordersDB == null || !ordersDB.getStatus().equals(Orders.DELIVERY_IN_PROGRESS)) {
             throw new OrderBusinessException(MessageConstant.ORDER_STATUS_ERROR);
         }
@@ -589,7 +589,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     /**
-     * 顧客からの督�?
+     * 顧客からの督
      * @param id
      */
     public void reminder(Long id) {
@@ -602,11 +602,11 @@ public class OrderServiceImpl implements OrderService {
         }
 
         Map map = new HashMap();
-        map.put("type",2); //1は新規注文通知�?は顧客からの督促
+        map.put("type",2); //1は新規注文通知は顧客からの督促
         map.put("orderId",id);
         map.put("content","注文番号" + ordersDB.getNumber());
 
-        //WebSocketを介してクライアントブラウザにメッセージをプッシ�?
+        //WebSocketを介してクライアントブラウザにメッセージをプッシ
         webSocketServer.sendToAllClient(JSON.toJSONString(map));
     }
 }

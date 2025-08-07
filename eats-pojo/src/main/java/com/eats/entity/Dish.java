@@ -21,7 +21,7 @@ public class Dish implements Serializable {
 
     private Long id;
 
-    //料理�?
+    //料理
     private String name;
 
     //料理カテゴリID
@@ -36,7 +36,7 @@ public class Dish implements Serializable {
     //説明情報
     private String description;
 
-    //0: 販売停止 1: 販売�?
+    //0: 販売停止 1: 販売
     private Integer status;
 
     private LocalDateTime createTime;

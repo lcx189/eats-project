@@ -26,12 +26,12 @@ public class CategoryController {
     private CategoryService categoryService;
 
     /**
-     * カテゴリを追�?
+     * カテゴリを追
      * @param categoryDTO
      * @return
      */
     @PostMapping
-    @ApiOperation("カテゴリを追�?")
+    @ApiOperation("カテゴリを追")
     public Result<String> save(@RequestBody CategoryDTO categoryDTO){
         log.info("カテゴリを追加：{}", categoryDTO);
         categoryService.save(categoryDTO);
@@ -52,12 +52,12 @@ public class CategoryController {
     }
 
     /**
-     * カテゴリを削�?
+     * カテゴリを削
      * @param id
      * @return
      */
     @DeleteMapping
-    @ApiOperation("カテゴリを削�?")
+    @ApiOperation("カテゴリを削")
     public Result<String> deleteById(Long id){
         log.info("カテゴリを削除：{}", id);
         categoryService.deleteById(id);
@@ -65,12 +65,12 @@ public class CategoryController {
     }
 
     /**
-     * カテゴリを編�?
+     * カテゴリを編
      * @param categoryDTO
      * @return
      */
     @PutMapping
-    @ApiOperation("カテゴリを編�?")
+    @ApiOperation("カテゴリを編")
     public Result<String> update(@RequestBody CategoryDTO categoryDTO){
         categoryService.update(categoryDTO);
         return Result.success();
@@ -90,7 +90,7 @@ public class CategoryController {
     }
 
     /**
-     * タイプに基づいてカテゴリを検�?
+     * タイプに基づいてカテゴリを検
      * @param type
      * @return
      */

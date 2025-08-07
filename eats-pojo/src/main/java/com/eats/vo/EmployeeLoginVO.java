@@ -16,10 +16,10 @@ import java.io.Serializable;
 @ApiModel(description = "従業員ログイン時に返されるデータ形式")
 public class EmployeeLoginVO implements Serializable {
 
-    @ApiModelProperty("主キー�?")
+    @ApiModelProperty("主キー")
     private Long id;
 
-    @ApiModelProperty("ユーザー�?")
+    @ApiModelProperty("ユーザー")
     private String userName;
 
     @ApiModelProperty("氏名")

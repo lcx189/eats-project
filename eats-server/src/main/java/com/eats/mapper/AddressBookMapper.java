@@ -26,7 +26,7 @@ public interface AddressBookMapper {
     void insert(AddressBook addressBook);
 
     /**
-     * IDに基づいて検�?
+     * IDに基づいて検
      * @param id
      * @return
      */
@@ -34,13 +34,13 @@ public interface AddressBookMapper {
     AddressBook getById(Long id);
 
     /**
-     * IDに基づいて更�?
+     * IDに基づいて更
      * @param addressBook
      */
     void update(AddressBook addressBook);
 
     /**
-     * ユーザーIDに基づいてデフォルトアドレスかどうかを更�?
+     * ユーザーIDに基づいてデフォルトアドレスかどうかを更
      * @param addressBook
      */
     @Update("update address_book set is_default = #{isDefault} where user_id = #{userId}")

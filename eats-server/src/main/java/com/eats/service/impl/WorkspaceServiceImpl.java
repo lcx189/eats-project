@@ -33,7 +33,7 @@ public class WorkspaceServiceImpl implements WorkspaceService {
     private SetmealMapper setmealMapper;
 
     /**
-     * 期間に基づいて営業データを統�?
+     * 期間に基づいて営業データを統
      * @param begin
      * @param end
      * @return
@@ -41,9 +41,9 @@ public class WorkspaceServiceImpl implements WorkspaceService {
     public BusinessDataVO getBusinessData(LocalDateTime begin, LocalDateTime end) {
         /**
          * 売上高：当日の完了済み注文の合計金額
-         * 有効注文数：当日の完了済み注文の�?
-         * 注文完了率：有効注文�?/ 総注文数
-         * 平均客単価：売上�?/ 有効注文�?
+         * 有効注文数：当日の完了済み注文の
+         * 注文完了率：有効注文/ 総注文数
+         * 平均客単価：売上/ 有効注文
          * 新規ユーザー数：当日の新規ユーザー数
          */
 
@@ -51,28 +51,28 @@ public class WorkspaceServiceImpl implements WorkspaceService {
         map.put("begin",begin);
         map.put("end",end);
 
-        //総注文数を照�?
+        //総注文数を照
         Integer totalOrderCount = orderMapper.countByMap(map);
 
         map.put("status", Orders.COMPLETED);
-        //売上�?
+        //売上
         Double turnover = orderMapper.sumByMap(map);
         turnover = turnover == null? 0.0 : turnover;
 
-        //有効注文�?
+        //有効注文
         Integer validOrderCount = orderMapper.countByMap(map);
 
         Double unitPrice = 0.0;
 
         Double orderCompletionRate = 0.0;
         if(totalOrderCount != 0 && validOrderCount != 0){
-            //注文完了�?
+            //注文完了
             orderCompletionRate = validOrderCount.doubleValue() / totalOrderCount;
-            //平均客単�?
+            //平均客単
             unitPrice = turnover / validOrderCount;
         }
 
-        //新規ユーザー�?
+        //新規ユーザー
         Integer newUsers = userMapper.countByMap(map);
 
         return BusinessDataVO.builder()
@@ -106,11 +106,11 @@ public class WorkspaceServiceImpl implements WorkspaceService {
         map.put("status", Orders.COMPLETED);
         Integer completedOrders = orderMapper.countByMap(map);
 
-        //キャンセル済�?
+        //キャンセル済
         map.put("status", Orders.CANCELLED);
         Integer cancelledOrders = orderMapper.countByMap(map);
 
-        //全注�?
+        //全注
         map.put("status", null);
         Integer allOrders = orderMapper.countByMap(map);
 
@@ -124,7 +124,7 @@ public class WorkspaceServiceImpl implements WorkspaceService {
     }
 
     /**
-     * 料理概要を照�?
+     * 料理概要を照
      *
      * @return
      */

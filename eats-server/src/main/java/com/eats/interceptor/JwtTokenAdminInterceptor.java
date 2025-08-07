@@ -24,7 +24,7 @@ public class JwtTokenAdminInterceptor implements HandlerInterceptor {
     private JwtProperties jwtProperties;
 
     /**
-     * JWTを検�?
+     * JWTを検
      *
      * @param request
      * @param response
@@ -33,7 +33,7 @@ public class JwtTokenAdminInterceptor implements HandlerInterceptor {
      * @throws Exception
      */
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        //現在インターセプトされたのがControllerのメソッドか、それとも他のリソースかを判�?
+        //現在インターセプトされたのがControllerのメソッドか、それとも他のリソースかを判
         if (!(handler instanceof HandlerMethod)) {
             //現在インターセプトされたのは動的メソッドではないため、直接通過させます
             return true;
@@ -52,7 +52,7 @@ public class JwtTokenAdminInterceptor implements HandlerInterceptor {
             //3、検証成功、通過
             return true;
         } catch (Exception ex) {
-            //4、検証失敗�?01ステータスコードを応�?
+            //4、検証失敗01ステータスコードを応
             response.setStatus(401);
             return false;
         }

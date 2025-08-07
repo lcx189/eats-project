@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 public class Orders implements Serializable {
 
     /**
-     * 注文ステータ�?1:支払い待�?2:受注待ち 3:受注済み 4:配達�?5:完了 6:キャンセル済�?
+     * 注文ステータ1:支払い待2:受注待ち 3:受注済み 4:配達5:完了 6:キャンセル済
      */
     public static final Integer PENDING_PAYMENT = 1;
     public static final Integer TO_BE_CONFIRMED = 2;
@@ -29,7 +29,7 @@ public class Orders implements Serializable {
     public static final Integer CANCELLED = 6;
 
     /**
-     * 支払いステータス 0:未払�?1:支払い済�?2:返金
+     * 支払いステータス 0:未払1:支払い済2:返金
      */
     public static final Integer UN_PAID = 0;
     public static final Integer PAID = 1;
@@ -42,7 +42,7 @@ public class Orders implements Serializable {
     //注文番号
     private String number;
 
-    //注文ステータ�?1:支払い待�?2:受注待ち 3:受注済み 4:配達�?5:完了 6:キャンセル済�?7:返金
+    //注文ステータ1:支払い待2:受注待ち 3:受注済み 4:配達5:完了 6:キャンセル済7:返金
     private Integer status;
 
     //注文ユーザーID
@@ -57,19 +57,19 @@ public class Orders implements Serializable {
     //会計時間
     private LocalDateTime checkoutTime;
 
-    //支払い方�?1:WeChat 2:AliPay
+    //支払い方1:WeChat 2:AliPay
     private Integer payMethod;
 
-    //支払いステータス 0:未払�?1:支払い済�?2:返金
+    //支払いステータス 0:未払1:支払い済2:返金
     private Integer payStatus;
 
     //受領金額
     private BigDecimal amount;
 
-    //備�?
+    //備
     private String remark;
 
-    //ユーザー�?
+    //ユーザー
     private String userName;
 
     //電話番号
@@ -78,33 +78,33 @@ public class Orders implements Serializable {
     //住所
     private String address;
 
-    //受取�?
+    //受取
     private String consignee;
 
-    //注文キャンセル理�?
+    //注文キャンセル理
     private String cancelReason;
 
     //注文拒否理由
     private String rejectionReason;
 
-    //注文キャンセル時�?
+    //注文キャンセル時
     private LocalDateTime cancelTime;
 
-    //お届け予定時�?
+    //お届け予定時
     private LocalDateTime estimatedDeliveryTime;
 
-    //配送ステータス 1:すぐに配�?0:具体的な時間を選�?
+    //配送ステータス 1:すぐに配0:具体的な時間を選
     private Integer deliveryStatus;
 
-    //お届け時�?
+    //お届け時
     private LocalDateTime deliveryTime;
 
-    //梱包�?
+    //梱包
     private int packAmount;
 
     //食器の数
     private int tablewareNumber;
 
-    //食器の数ステータ�?1:食事量に応じて提�?0:具体的な数量を選�?
+    //食器の数ステータ1:食事量に応じて提0:具体的な数量を選
     private Integer tablewareStatus;
 }

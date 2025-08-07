@@ -9,7 +9,7 @@ import com.eats.result.PageResult;
 public interface EmployeeService {
 
     /**
-     * 従業員ログイ�?
+     * 従業員ログイ
      * @param employeeLoginDTO
      * @return
      */
@@ -22,7 +22,7 @@ public interface EmployeeService {
     void save(EmployeeDTO employeeDTO);
 
     /**
-     * ページング検�?
+     * ページング検
      * @param employeePageQueryDTO
      * @return
      */
@@ -36,7 +36,7 @@ public interface EmployeeService {
     void startOrStop(Integer status, Long id);
 
     /**
-     * IDに基づいて従業員を検�?
+     * IDに基づいて従業員を検
      * @param id
      * @return
      */

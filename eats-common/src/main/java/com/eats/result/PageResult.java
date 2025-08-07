@@ -17,6 +17,6 @@ public class PageResult implements Serializable {
 
     private long total; //総レコード数
 
-    private List records; //現在のページのデータセッ�?
+    private List records; //現在のページのデータセッ
 
 }

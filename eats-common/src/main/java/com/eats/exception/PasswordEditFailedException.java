@@ -1,7 +1,7 @@
 package com.eats.exception;
 
 /**
- * パスワード変更失敗例�?
+ * パスワード変更失败
  */
 public class PasswordEditFailedException extends BaseException{
 

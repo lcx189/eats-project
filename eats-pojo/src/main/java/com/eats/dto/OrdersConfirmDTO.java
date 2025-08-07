@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class OrdersConfirmDTO implements Serializable {
 
     private Long id;
-    //注文ステータ�?1:支払い待�?2:受注待ち 3:受注済み 4:配達�?5:完了 6:キャンセル済�?7:返金
+    //注文ステータ1:支払い待2:受注待ち 3:受注済み 4:配達5:完了 6:キャンセル済7:返金
     private Integer status;
 
 }

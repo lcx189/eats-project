@@ -40,7 +40,7 @@ public class DishServiceImpl implements DishService {
     private SetmealMapper setmealMapper;
 
     /**
-     * 料理と対応するフレーバーを追�?
+     * 料理と対応するフレーバーを追
      *
      * @param dishDTO
      */
@@ -51,7 +51,7 @@ public class DishServiceImpl implements DishService {
 
         BeanUtils.copyProperties(dishDTO, dish);
 
-        //料理テーブル�?件のデータを挿入
+        //料理テーブル件のデータを挿入
         dishMapper.insert(dish);
 
         //insert文で生成された主キー値を取得
@@ -80,13 +80,13 @@ public class DishServiceImpl implements DishService {
     }
 
     /**
-     * 料理の一括削�?
+     * 料理の一括削
      *
      * @param ids
      */
     @Transactional
     public void deleteBatch(List<Long> ids) {
-        //現在の料理が削除可能かどうかを判�?--販売中の料理が存在するかどうか？�?
+        //現在の料理が削除可能かどうかを判--販売中の料理が存在するかどうか？
         for (Long id : ids) {
             Dish dish = dishMapper.getById(id);
             if (dish.getStatus() == StatusConstant.ENABLE) {
@@ -95,7 +95,7 @@ public class DishServiceImpl implements DishService {
             }
         }
 
-        //現在の料理が削除可能かどうかを判�?--セットメニューに関連付けられているかどうか？？
+        //現在の料理が削除可能かどうかを判--セットメニューに関連付けられているかどうか？？
         List<Long> setmealIds = setmealDishMapper.getSetmealIdsByDishIds(ids);
         if (setmealIds != null && setmealIds.size() > 0) {
             //現在の料理はセットメニューに関連付けられているため、削除できません
@@ -111,13 +111,13 @@ public class DishServiceImpl implements DishService {
     }
 
     /**
-     * IDに基づいて料理と対応するフレーバーデータを検�?
+     * IDに基づいて料理と対応するフレーバーデータを検
      *
      * @param id
      * @return
      */
     public DishVO getByIdWithFlavor(Long id) {
-        //IDに基づいて料理データを検�?
+        //IDに基づいて料理データを検
         Dish dish = dishMapper.getById(id);
 
         //料理IDに基づいてフレーバーデータを検索
@@ -132,7 +132,7 @@ public class DishServiceImpl implements DishService {
     }
 
     /**
-     * IDに基づいて料理の基本情報と対応するフレーバー情報を編�?
+     * IDに基づいて料理の基本情報と対応するフレーバー情報を編
      *
      * @param dishDTO
      */
@@ -143,7 +143,7 @@ public class DishServiceImpl implements DishService {
         //料理テーブルの基本情報を編集
         dishMapper.update(dish);
 
-        //元のフレーバーデータを削�?
+        //元のフレーバーデータを削
         dishFlavorMapper.deleteByDishId(dishDTO.getId());
 
         //フレーバーデータを再挿入
@@ -217,7 +217,7 @@ public class DishServiceImpl implements DishService {
             DishVO dishVO = new DishVO();
             BeanUtils.copyProperties(d,dishVO);
 
-            //料理IDに基づいて対応するフレーバーを検�?
+            //料理IDに基づいて対応するフレーバーを検
             List<DishFlavor> flavors = dishFlavorMapper.getByDishId(d.getId());
 
             dishVO.setFlavors(flavors);

@@ -16,7 +16,7 @@ public class DishPageQueryDTO implements Serializable {
     //カテゴリID
     private Integer categoryId;
 
-    //ステータ�?0: 無効 1: 有効
+    //ステータ0: 無効 1: 有効
     private Integer status;
 
 }

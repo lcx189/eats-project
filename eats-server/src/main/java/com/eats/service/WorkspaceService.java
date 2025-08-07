@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 public interface WorkspaceService {
 
     /**
-     * 期間に基づいて営業データを統�?
+     * 期間に基づいて営業データを統
      * @param begin
      * @param end
      * @return
@@ -23,7 +23,7 @@ public interface WorkspaceService {
     OrderOverViewVO getOrderOverView();
 
     /**
-     * 料理概要を照�?
+     * 料理概要を照
      * @return
      */
     DishOverViewVO getDishOverView();

@@ -21,7 +21,7 @@ public interface EmployeeMapper {
     Employee getByUsername(String username);
 
     /**
-     * 従業員データを挿�?
+     * 従業員データを挿
      * @param employee
      */
     @Insert("insert into employee (name, username, password, phone, sex, id_number, create_time, update_time, create_user, update_user,status) " +
@@ -31,21 +31,21 @@ public interface EmployeeMapper {
     void insert(Employee employee);
 
     /**
-     * ページング検�?
+     * ページング検
      * @param employeePageQueryDTO
      * @return
      */
     Page<Employee> pageQuery(EmployeePageQueryDTO employeePageQueryDTO);
 
     /**
-     * 主キーに基づいて属性を動的に編�?
+     * 主キーに基づいて属性を動的に編
      * @param employee
      */
     @AutoFill(value = OperationType.UPDATE)
     void update(Employee employee);
 
     /**
-     * IDに基づいて従業員情報を検�?
+     * IDに基づいて従業員情報を検
      * @param id
      * @return
      */

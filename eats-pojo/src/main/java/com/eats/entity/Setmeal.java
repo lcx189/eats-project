@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 /**
- * セットメニュ�?
+ * セットメニュ
  */
 @Data
 @Builder
@@ -27,10 +27,10 @@ public class Setmeal implements Serializable {
     //セットメニュー名
     private String name;
 
-    //セットメニュー価�?
+    //セットメニュー価
     private BigDecimal price;
 
-    //ステータ�?0:無効 1:有効
+    //ステータ0:無効 1:有効
     private Integer status;
 
     //説明情報

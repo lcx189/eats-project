@@ -34,7 +34,7 @@ public class HttpClientUtil {
      * @return
      */
     public static String doGet(String url,Map<String,String> paramMap){
-        // Httpclientオブジェクトを作�?
+        // Httpclient
         CloseableHttpClient httpClient = HttpClients.createDefault();
 
         String result = "";
@@ -55,7 +55,7 @@ public class HttpClientUtil {
             //リクエストを送信
             response = httpClient.execute(httpGet);
 
-            //レスポンスステータスを判�?
+            //レスポンスステータス
             if(response.getStatusLine().getStatusCode() == 200){
                 result = EntityUtils.toString(response.getEntity(),"UTF-8");
             }
@@ -81,7 +81,7 @@ public class HttpClientUtil {
      * @throws IOException
      */
     public static String doPost(String url, Map<String, String> paramMap) throws IOException {
-        // Httpclientオブジェクトを作�?
+        // Httpclientオブジェクト
         CloseableHttpClient httpClient = HttpClients.createDefault();
         CloseableHttpResponse response = null;
         String resultString = "";
@@ -90,13 +90,13 @@ public class HttpClientUtil {
             // Http Postリクエストを作成
             HttpPost httpPost = new HttpPost(url);
 
-            // パラメータリストを作�?
+            // パラメータリスト
             if (paramMap != null) {
                 List<NameValuePair> paramList = new ArrayList();
                 for (Map.Entry<String, String> param : paramMap.entrySet()) {
                     paramList.add(new BasicNameValuePair(param.getKey(), param.getValue()));
                 }
-                // フォームをシミュレー�?
+                // フォームをシミュレー
                 UrlEncodedFormEntity entity = new UrlEncodedFormEntity(paramList);
                 httpPost.setEntity(entity);
             }
@@ -128,7 +128,7 @@ public class HttpClientUtil {
      * @throws IOException
      */
     public static String doPost4Json(String url, Map<String, String> paramMap) throws IOException {
-        // Httpclientオブジェクトを作�?
+        // Httpclientオブジェクトを作
         CloseableHttpClient httpClient = HttpClients.createDefault();
         CloseableHttpResponse response = null;
         String resultString = "";
@@ -138,7 +138,7 @@ public class HttpClientUtil {
             HttpPost httpPost = new HttpPost(url);
 
             if (paramMap != null) {
-                //json形式のデータを構�?
+                //json形式のデータ
                 JSONObject jsonObject = new JSONObject();
                 for (Map.Entry<String, String> param : paramMap.entrySet()) {
                     jsonObject.put(param.getKey(),param.getValue());
@@ -146,7 +146,7 @@ public class HttpClientUtil {
                 StringEntity entity = new StringEntity(jsonObject.toString(),"utf-8");
                 //リクエストエンコーディングを設定
                 entity.setContentEncoding("utf-8");
-                //データタイプを設�?
+                //データタイプ
                 entity.setContentType("application/json");
                 httpPost.setEntity(entity);
             }

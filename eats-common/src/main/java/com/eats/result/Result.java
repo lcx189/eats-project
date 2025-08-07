@@ -5,15 +5,15 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * バックエンドの統一された戻り結�?
+ * バックエンドの統一された戾り結果?
  * @param <T>
  */
 @Data
 public class Result<T> implements Serializable {
 
-    private Integer code; //コード：1は成功�?およびその他の数字は失敗
+    private Integer code; //コード：1は成功
     private String msg; //エラーメッセージ
-    private T data; //デー�?
+    private T data; //
 
     public static <T> Result<T> success() {
         Result<T> result = new Result<T>();

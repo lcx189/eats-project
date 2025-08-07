@@ -13,10 +13,10 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class TurnoverReportVO implements Serializable {
 
-    //日付リスト（カンマ区切り）、例�?022-10-01,2022-10-02,2022-10-03
+    //日付リスト（カンマ区切り）、例022-10-01,2022-10-02,2022-10-03
     private String dateList;
 
-    //売上高リスト（カンマ区切り）、例�?06.0,1520.0,75.0
+    //売上高リスト（カンマ区切り）、例06.0,1520.0,75.0
     private String turnoverList;
 
 }

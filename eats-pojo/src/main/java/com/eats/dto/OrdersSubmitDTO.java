@@ -11,20 +11,20 @@ import java.time.LocalDateTime;
 public class OrdersSubmitDTO implements Serializable {
     //アドレス帳ID
     private Long addressBookId;
-    //支払い方�?
+    //支払い方
     private int payMethod;
-    //備�?
+    //備
     private String remark;
-    //お届け予定時�?
+    //お届け予定時
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime estimatedDeliveryTime;
-    //配送ステータス 1:すぐに配�?0:具体的な時間を選�?
+    //配送ステータス 1:すぐに配0:具体的な時間を選
     private Integer deliveryStatus;
     //食器の数
     private Integer tablewareNumber;
-    //食器の数ステータ�?1:食事量に応じて提�?0:具体的な数量を選�?
+    //食器の数ステータ1:食事量に応じて提0:具体的な数量を選
     private Integer tablewareStatus;
-    //梱包�?
+    //梱包
     private Integer packAmount;
     //合計金額
     private BigDecimal amount;

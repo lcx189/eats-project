@@ -15,7 +15,7 @@ public class OrdersDTO implements Serializable {
     //注文番号
     private String number;
 
-    //注文ステータ�?1:支払い待�?2:配達待ち 3:配達済み 4:完了 5:キャンセル済�?
+    //注文ステータ1:支払い待2:配達待ち 3:配達済み 4:完了 5:キャンセル済
     private Integer status;
 
     //注文ユーザーID
@@ -30,16 +30,16 @@ public class OrdersDTO implements Serializable {
     //会計時間
     private LocalDateTime checkoutTime;
 
-    //支払い方�?1:WeChat 2:AliPay
+    //支払い方1:WeChat 2:AliPay
     private Integer payMethod;
 
     //受領金額
     private BigDecimal amount;
 
-    //備�?
+    //備
     private String remark;
 
-    //ユーザー�?
+    //ユーザー
     private String userName;
 
     //電話番号
@@ -48,7 +48,7 @@ public class OrdersDTO implements Serializable {
     //住所
     private String address;
 
-    //受取�?
+    //受取
     private String consignee;
 
     private List<OrderDetail> orderDetails;

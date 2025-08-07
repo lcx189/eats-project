@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 /**
- * スケジュールタスククラス、定期的に注文ステータスを処�?
+ * スケジュールタスククラス、定期的に注文ステータスを処
  */
 @Component
 @Slf4j
@@ -20,7 +20,7 @@ public class OrderTask {
     private OrderMapper orderMapper;
 
     /**
-     * タイムアウト注文を処理するメソッ�?
+     * タイムアウト注文を処理するメソッ
      */
     @Scheduled(cron = "0 * * * * ? ") //1分ごとにトリガー
     public void processTimeoutOrder(){

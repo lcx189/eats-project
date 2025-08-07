@@ -25,10 +25,10 @@ public class SetmealVO implements Serializable {
     //セットメニュー名
     private String name;
 
-    //セットメニュー価�?
+    //セットメニュー価
     private BigDecimal price;
 
-    //ステータ�?0:無効 1:有効
+    //ステータ0:無効 1:有効
     private Integer status;
 
     //説明情報
@@ -40,9 +40,9 @@ public class SetmealVO implements Serializable {
     //更新時間
     private LocalDateTime updateTime;
 
-    //カテゴリ�?
+    //カテゴリ
     private String categoryName;
 
-    //セットメニューと料理の関連関�?
+    //セットメニューと料理の関連関
     private List<SetmealDish> setmealDishes = new ArrayList<>();
 }

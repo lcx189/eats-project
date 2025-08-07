@@ -9,7 +9,7 @@ import java.util.List;
 @Mapper
 public interface OrderDetailMapper {
     /**
-     * 注文詳細データを一括挿�?
+     * 注文詳細データを一括挿
      * @param orderDetailList
      */
     void insertBatch(List<OrderDetail> orderDetailList);

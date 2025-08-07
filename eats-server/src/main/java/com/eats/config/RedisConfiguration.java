@@ -13,11 +13,11 @@ public class RedisConfiguration {
 
     @Bean
     public RedisTemplate redisTemplate(RedisConnectionFactory redisConnectionFactory){
-        log.info("Redisテンプレートオブジェクトの作成を開始しま�?..");
+        log.info("Redisテンプレートオブジェクトの作成を開始しま..");
         RedisTemplate redisTemplate = new RedisTemplate();
         //Redisの接続ファクトリオブジェクトを設定します
         redisTemplate.setConnectionFactory(redisConnectionFactory);
-        //Redisキーのシリアライザを設定しま�?
+        //Redisキーのシリアライザを設定しま
         redisTemplate.setKeySerializer(new StringRedisSerializer());
         return redisTemplate;
     }

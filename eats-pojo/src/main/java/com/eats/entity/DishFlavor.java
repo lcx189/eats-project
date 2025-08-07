@@ -25,7 +25,7 @@ public class DishFlavor implements Serializable {
     //フレーバー名
     private String name;
 
-    //フレーバーデータリス�?
+    //フレーバーデータリス
     private String value;
 
 }

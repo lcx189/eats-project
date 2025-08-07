@@ -19,7 +19,7 @@ public class User implements Serializable {
 
     private Long id;
 
-    //WeChatユーザーの一意の識別�?
+    //WeChatユーザーの一意の識別
     private String openid;
 
     //氏名
@@ -28,10 +28,10 @@ public class User implements Serializable {
     //電話番号
     private String phone;
 
-    //性別 0:女�?1:男�?
+    //性別 0:女1:男
     private String sex;
 
-    //身分証明書番�?
+    //身分証明書番
     private String idNumber;
 
     //アバター

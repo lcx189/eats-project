@@ -9,13 +9,13 @@ import java.util.List;
 public interface CategoryService {
 
     /**
-     * カテゴリを追�?
+     * カテゴリを追
      * @param categoryDTO
      */
     void save(CategoryDTO categoryDTO);
 
     /**
-     * ページング検�?
+     * ページング検
      * @param categoryPageQueryDTO
      * @return
      */
@@ -28,7 +28,7 @@ public interface CategoryService {
     void deleteById(Long id);
 
     /**
-     * カテゴリを編�?
+     * カテゴリを編
      * @param categoryDTO
      */
     void update(CategoryDTO categoryDTO);
@@ -41,7 +41,7 @@ public interface CategoryService {
     void startOrStop(Integer status, Long id);
 
     /**
-     * タイプに基づいてカテゴリを検�?
+     * タイプに基づいてカテゴリを検
      * @param type
      * @return
      */

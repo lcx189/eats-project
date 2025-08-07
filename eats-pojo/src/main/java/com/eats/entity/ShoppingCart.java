@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 /**
- * ショッピングカー�?
+ * ショッピングカー
  */
 @Data
 @Builder
@@ -34,7 +34,7 @@ public class ShoppingCart implements Serializable {
     //セットメニューID
     private Long setmealId;
 
-    //フレーバ�?
+    //フレーバ
     private String dishFlavor;
 
     //数量

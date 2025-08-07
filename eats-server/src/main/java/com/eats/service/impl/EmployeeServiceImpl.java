@@ -31,7 +31,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     private EmployeeMapper employeeMapper;
 
     /**
-     * 従業員ログイ�?
+     * 従業員ログイ
      *
      * @param employeeLoginDTO
      * @return
@@ -40,7 +40,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         String username = employeeLoginDTO.getUsername();
         String password = employeeLoginDTO.getPassword();
 
-        //1、ユーザー名に基づいてデータベース内のデータを検�?
+        //1、ユーザー名に基づいてデータベース内のデータを検
         Employee employee = employeeMapper.getByUsername(username);
 
         //2、さまざまな例外状況を処理（ユーザー名が存在しない、パスワードが間違っている、アカウントがロックされている）
@@ -53,12 +53,12 @@ public class EmployeeServiceImpl implements EmployeeService {
         //フロントエンドから渡された平文パスワードをmd5で暗号化処理
         password = DigestUtils.md5DigestAsHex(password.getBytes());
         if (!password.equals(employee.getPassword())) {
-            //パスワードが間違っていま�?
+            //パスワードが間違っていま
             throw new PasswordErrorException(MessageConstant.PASSWORD_ERROR);
         }
 
         if (employee.getStatus() == StatusConstant.DISABLE) {
-            //アカウントがロックされていま�?
+            //アカウントがロックされていま
             throw new AccountLockedException(MessageConstant.ACCOUNT_LOCKED);
         }
 
@@ -74,7 +74,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     public void save(EmployeeDTO employeeDTO) {
         Employee employee = new Employee();
 
-        //オブジェクトプロパティのコピ�?
+        //オブジェクトプロパティのコピ
         BeanUtils.copyProperties(employeeDTO, employee);
 
         //アカウントの状態を設定、デフォルトは通常状態 1は通常 0はロック
@@ -87,7 +87,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         //employee.setCreateTime(LocalDateTime.now());
         //employee.setUpdateTime(LocalDateTime.now());
 
-        //現在のレコードの作成者IDと更新者IDを設�?
+        //現在のレコードの作成者IDと更新者IDを設
         //employee.setCreateUser(BaseContext.getCurrentId());
         //employee.setUpdateUser(BaseContext.getCurrentId());
 
@@ -95,7 +95,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     /**
-     * ページング検�?
+     * ページング検
      *
      * @param employeePageQueryDTO
      * @return
@@ -135,7 +135,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     /**
-     * IDに基づいて従業員を検�?
+     * IDに基づいて従業員を検
      *
      * @param id
      * @return

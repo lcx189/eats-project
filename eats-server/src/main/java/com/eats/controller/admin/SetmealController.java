@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * セットメニュー管�?
+ * セットメニュー管
  */
 @RestController
 @RequestMapping("/admin/setmeal")
@@ -42,7 +42,7 @@ public class SetmealController {
     }
 
     /**
-     * ページング検�?
+     * ページング検
      *
      * @param setmealPageQueryDTO
      * @return
@@ -55,7 +55,7 @@ public class SetmealController {
     }
 
     /**
-     * セットメニューの一括削�?
+     * セットメニューの一括削
      *
      * @param ids
      * @return
@@ -69,7 +69,7 @@ public class SetmealController {
     }
 
     /**
-     * IDに基づいてセットメニューを検索し、編集ページのデータ表示に使�?
+     * IDに基づいてセットメニューを検索し、編集ページのデータ表示に使
      *
      * @param id
      * @return

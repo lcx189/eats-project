@@ -9,7 +9,7 @@ import java.util.List;
 @Mapper
 public interface SetmealDishMapper {
     /**
-     * 料理IDに基づいて対応するセットメニューIDを検�?
+     * 料理IDに基づいて対応するセットメニューIDを検
      *
      * @param dishIds
      * @return
@@ -18,7 +18,7 @@ public interface SetmealDishMapper {
     List<Long> getSetmealIdsByDishIds(List<Long> dishIds);
 
     /**
-     * セットメニューと料理の関連関係を一括保�?
+     * セットメニューと料理の関連関係を一括保
      *
      * @param setmealDishes
      */

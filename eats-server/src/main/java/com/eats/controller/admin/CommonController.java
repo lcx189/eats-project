@@ -16,11 +16,11 @@ import java.io.IOException;
 import java.util.UUID;
 
 /**
- * 共通インターフェー�?
+ * 共通インターフェー
  */
 @RestController
 @RequestMapping("/admin/common")
-@Api(tags = "共通インターフェー�?")
+@Api(tags = "共通インターフェー")
 @Slf4j
 public class CommonController {
 
@@ -38,7 +38,7 @@ public class CommonController {
         log.info("ファイルアップロード：{}",file);
 
         try {
-            //元のファイル�?
+            //元のファイル
             String originalFilename = file.getOriginalFilename();
             //元のファイル名の拡張子を切り取る dfdfdf.png
             String extension = originalFilename.substring(originalFilename.lastIndexOf("."));

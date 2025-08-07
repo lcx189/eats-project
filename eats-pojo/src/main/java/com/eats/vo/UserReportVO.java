@@ -13,13 +13,13 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class UserReportVO implements Serializable {
 
-    //日付リスト（カンマ区切り）、例�?022-10-01,2022-10-02,2022-10-03
+    //日付リスト（カンマ区切り）、例022-10-01,2022-10-02,2022-10-03
     private String dateList;
 
-    //総ユーザー数リスト（カンマ区切り）、例�?00,210,220
+    //総ユーザー数リスト（カンマ区切り）、例00,210,220
     private String totalUserList;
 
-    //新規ユーザー数リスト（カンマ区切り）、例�?0,21,10
+    //新規ユーザー数リスト（カンマ区切り）、例0,21,10
     private String newUserList;
 
 }

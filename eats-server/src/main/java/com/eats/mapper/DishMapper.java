@@ -17,7 +17,7 @@ import java.util.Map;
 public interface DishMapper {
 
     /**
-     * カテゴリIDに基づいて料理数を検�?
+     * カテゴリIDに基づいて料理数を検
      *
      * @param categoryId
      * @return
@@ -42,7 +42,7 @@ public interface DishMapper {
     Page<DishVO> pageQuery(DishPageQueryDTO dishPageQueryDTO);
 
     /**
-     * 主キーに基づいて料理を検�?
+     * 主キーに基づいて料理を検
      *
      * @param id
      * @return
@@ -83,7 +83,7 @@ public interface DishMapper {
     List<Dish> getBySetmealId(Long setmealId);
 
     /**
-     * 条件に基づいて料理数を統�?
+     * 条件に基づいて料理数を統
      * @param map
      * @return
      */

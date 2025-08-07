@@ -25,7 +25,7 @@ public interface ShoppingCartMapper {
     void updateNumberById(ShoppingCart shoppingCart);
 
     /**
-     * ショッピングカートデータを挿�?
+     * ショッピングカートデータを挿
      * @param shoppingCart
      */
     @Insert("insert into shopping_cart (name, user_id, dish_id, setmeal_id, dish_flavor, number, amount, image, create_time) " +
@@ -47,7 +47,7 @@ public interface ShoppingCartMapper {
     void deleteById(Long id);
 
     /**
-     * ショッピングカートデータを一括挿�?
+     * ショッピングカートデータを一括挿
      *
      * @param shoppingCartList
      */

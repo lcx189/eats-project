@@ -25,7 +25,7 @@ public interface ShoppingCartService {
     void cleanShoppingCart();
 
     /**
-     * ショッピングカートから商品を一つ削�?
+     * ショッピングカートから商品を一つ削
      * @param shoppingCartDTO
      */
     void subShoppingCart(ShoppingCartDTO shoppingCartDTO);

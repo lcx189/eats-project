@@ -32,13 +32,13 @@ public class DishController {
     private RedisTemplate redisTemplate;
 
     /**
-     * 料理を追�?
+     * 料理を追
      *
      * @param dishDTO
      * @return
      */
     @PostMapping
-    @ApiOperation("料理を追�?")
+    @ApiOperation("料理を追")
     public Result save(@RequestBody DishDTO dishDTO) {
         log.info("料理を追加：{}", dishDTO);
         dishService.saveWithFlavor(dishDTO);
@@ -64,13 +64,13 @@ public class DishController {
     }
 
     /**
-     * 料理の一括削�?
+     * 料理の一括削
      *
      * @param ids
      * @return
      */
     @DeleteMapping
-    @ApiOperation("料理の一括削�?")
+    @ApiOperation("料理の一括削")
     public Result delete(@RequestParam List<Long> ids) {
         log.info("料理の一括削除：{}", ids);
         dishService.deleteBatch(ids);
@@ -96,13 +96,13 @@ public class DishController {
     }
 
     /**
-     * 料理を編�?
+     * 料理を編
      *
      * @param dishDTO
      * @return
      */
     @PutMapping
-    @ApiOperation("料理を編�?")
+    @ApiOperation("料理を編")
     public Result update(@RequestBody DishDTO dishDTO) {
         log.info("料理を編集：{}", dishDTO);
         dishService.updateWithFlavor(dishDTO);

@@ -40,25 +40,25 @@ public class ReportServiceImpl implements ReportService {
     private WorkspaceService workspaceService;
 
     /**
-     * 指定された時間範囲内の売上データを統�?
+     * 指定された時間範囲内の売上データを統
      *
      * @param begin
      * @param end
      * @return
      */
     public TurnoverReportVO getTurnoverStatistics(LocalDate begin, LocalDate end) {
-        //現在のコレクションは、beginからendまでの範囲の毎日の日付を格納するために使用されま�?
+        //現在のコレクションは、beginからendまでの範囲の毎日の日付を格納するために使用されま
         List<LocalDate> dateList = new ArrayList<>();
 
         dateList.add(begin);
 
         while (!begin.equals(end)) {
-            //日付計算、指定された日付の翌日の日付を計�?
+            //日付計算、指定された日付の翌日の日付を計
             begin = begin.plusDays(1);
             dateList.add(begin);
         }
 
-        //毎日の売上高を格�?
+        //毎日の売上高を格
         List<Double> turnoverList = new ArrayList<>();
         for (LocalDate date : dateList) {
             //dateの日付に対応する売上データを照会、売上高とは：「完了」ステータスの注文金額の合計
@@ -84,14 +84,14 @@ public class ReportServiceImpl implements ReportService {
     }
 
     /**
-     * 指定された時間範囲内のユーザーデータを統�?
+     * 指定された時間範囲内のユーザーデータを統
      *
      * @param begin
      * @param end
      * @return
      */
     public UserReportVO getUserStatistics(LocalDate begin, LocalDate end) {
-        //beginからendまでの毎日の日付を格�?
+        //beginからendまでの毎日の日付を格
         List<LocalDate> dateList = new ArrayList<>();
 
         dateList.add(begin);
@@ -101,7 +101,7 @@ public class ReportServiceImpl implements ReportService {
             dateList.add(begin);
         }
 
-        //毎日の新規ユーザー数を格�?select count(id) from user where create_time < ? and create_time > ?
+        //毎日の新規ユーザー数を格select count(id) from user where create_time < ? and create_time > ?
         List<Integer> newUserList = new ArrayList<>();
         //毎日の総ユーザー数を格納 select count(id) from user where create_time < ?
         List<Integer> totalUserList = new ArrayList<>();
@@ -117,14 +117,14 @@ public class ReportServiceImpl implements ReportService {
             Integer totalUser = userMapper.countByMap(map);
 
             map.put("begin", beginTime);
-            //新規ユーザー�?
+            //新規ユーザー
             Integer newUser = userMapper.countByMap(map);
 
             totalUserList.add(totalUser);
             newUserList.add(newUser);
         }
 
-        //結果データをカプセル�?
+        //結果データをカプセル
         return UserReportVO
                 .builder()
                 .dateList(StringUtils.join(dateList, ","))
@@ -134,13 +134,13 @@ public class ReportServiceImpl implements ReportService {
     }
 
     /**
-     * 指定された時間範囲内の注文データを統�?
+     * 指定された時間範囲内の注文データを統
      * @param begin
      * @param end
      * @return
      */
     public OrderReportVO getOrderStatistics(LocalDate begin, LocalDate end) {
-        //beginからendまでの毎日の日付を格�?
+        //beginからendまでの毎日の日付を格
         List<LocalDate> dateList = new ArrayList<>();
 
         dateList.add(begin);
@@ -152,24 +152,24 @@ public class ReportServiceImpl implements ReportService {
 
         //毎日の総注文数を格納
         List<Integer> orderCountList = new ArrayList<>();
-        //毎日の有効注文数を格�?
+        //毎日の有効注文数を格
         List<Integer> validOrderCountList = new ArrayList<>();
 
-        //dateListコレクションをループし、毎日の有効注文数と総注文数を照�?
+        //dateListコレクションをループし、毎日の有効注文数と総注文数を照
         for (LocalDate date : dateList) {
             //毎日の総注文数を照会 select count(id) from orders where order_time > ? and order_time < ?
             LocalDateTime beginTime = LocalDateTime.of(date, LocalTime.MIN);
             LocalDateTime endTime = LocalDateTime.of(date, LocalTime.MAX);
             Integer orderCount = getOrderCount(beginTime, endTime, null);
 
-            //毎日の有効注文数を照�?select count(id) from orders where order_time > ? and order_time < ? and status = 5
+            //毎日の有効注文数を照select count(id) from orders where order_time > ? and order_time < ? and status = 5
             Integer validOrderCount = getOrderCount(beginTime, endTime, Orders.COMPLETED);
 
             orderCountList.add(orderCount);
             validOrderCountList.add(validOrderCount);
         }
 
-        //時間範囲内の総注文数を計�?
+        //時間範囲内の総注文数を計
         Integer totalOrderCount = orderCountList.stream().reduce(Integer::sum).get();
 
         //時間範囲内の有効注文数を計算
@@ -208,7 +208,7 @@ public class ReportServiceImpl implements ReportService {
     }
 
     /**
-     * 指定された時間範囲内の売上ランキングトッ�?0を統�?
+     * 指定された時間範囲内の売上ランキングトッ0を統
      * @param begin
      * @param end
      * @return
@@ -224,7 +224,7 @@ public class ReportServiceImpl implements ReportService {
         List<Integer> numbers = salesTop10.stream().map(GoodsSalesDTO::getNumber).collect(Collectors.toList());
         String numberList = StringUtils.join(numbers, ",");
 
-        //結果データをカプセル化して返�?
+        //結果データをカプセル化して返
         return SalesTop10ReportVO
                 .builder()
                 .nameList(nameList)
@@ -237,7 +237,7 @@ public class ReportServiceImpl implements ReportService {
      * @param response
      */
     public void exportBusinessData(HttpServletResponse response) {
-        //1. データベースを照会し、営業データを取�?--過去30日間の運営データを照�?
+        //1. データベースを照会し、営業データを取--過去30日間の運営データを照
         LocalDate dateBegin = LocalDate.now().minusDays(30);
         LocalDate dateEnd = LocalDate.now().minusDays(1);
 
@@ -248,7 +248,7 @@ public class ReportServiceImpl implements ReportService {
         InputStream in = this.getClass().getClassLoader().getResourceAsStream("template/运营数据报表模板.xlsx");
 
         try {
-            //テンプレートファイルに基づいて新しいExcelファイルを作�?
+            //テンプレートファイルに基づいて新しいExcelファイルを作
             XSSFWorkbook excel = new XSSFWorkbook(in);
 
             //表ファイルのシートを取得
@@ -257,13 +257,13 @@ public class ReportServiceImpl implements ReportService {
             //データを入力--時間
             sheet.getRow(1).getCell(1).setCellValue("時間" + dateBegin + "から" + dateEnd);
 
-            //4行目を取�?
+            //4行目を取
             XSSFRow row = sheet.getRow(3);
             row.getCell(2).setCellValue(businessDataVO.getTurnover());
             row.getCell(4).setCellValue(businessDataVO.getOrderCompletionRate());
             row.getCell(6).setCellValue(businessDataVO.getNewUsers());
 
-            //5行目を取�?
+            //5行目を取
             row = sheet.getRow(4);
             row.getCell(2).setCellValue(businessDataVO.getValidOrderCount());
             row.getCell(4).setCellValue(businessDataVO.getUnitPrice());
@@ -284,7 +284,7 @@ public class ReportServiceImpl implements ReportService {
                 row.getCell(6).setCellValue(businessData.getNewUsers());
             }
 
-            //3. 出力ストリームを介してExcelファイルをクライアントブラウザにダウンロー�?
+            //3. 出力ストリームを介してExcelファイルをクライアントブラウザにダウンロー
             ServletOutputStream out = response.getOutputStream();
             excel.write(out);
 

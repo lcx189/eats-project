@@ -11,7 +11,7 @@ import java.util.List;
 public class DishDTO implements Serializable {
 
     private Long id;
-    //料理�?
+    //料理
     private String name;
     //料理カテゴリID
     private Long categoryId;
@@ -21,9 +21,9 @@ public class DishDTO implements Serializable {
     private String image;
     //説明情報
     private String description;
-    //0: 販売停止 1: 販売�?
+    //0: 販売停止 1: 販売
     private Integer status;
-    //フレーバ�?
+    //フレーバ
     private List<DishFlavor> flavors = new ArrayList<>();
 
 }

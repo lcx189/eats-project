@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
- * セットメニューと料理の関�?
+ * セットメニューと料理の関
  */
 @Data
 @Builder
@@ -30,7 +30,7 @@ public class SetmealDish implements Serializable {
     //料理名（冗長フィールド）
     private String name;
 
-    //料理の定�?
+    //料理の定
     private BigDecimal price;
 
     //数量

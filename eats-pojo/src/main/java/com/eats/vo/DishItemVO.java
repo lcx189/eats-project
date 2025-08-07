@@ -13,7 +13,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class DishItemVO implements Serializable {
 
-    //料理�?
+    //料理
     private String name;
 
     //数量

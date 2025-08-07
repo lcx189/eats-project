@@ -34,7 +34,7 @@ public class JacksonObjectMapper extends ObjectMapper {
         //未知のプロパティを受け取ったときに例外をスローしない
         this.configure(FAIL_ON_UNKNOWN_PROPERTIES, false);
 
-        //デシリアライズ時、プロパティが存在しない場合の互換性処�?
+        //デシリアライズ時、プロパティが存在しない場合の互換性
         this.getDeserializationConfig().withoutFeatures(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
 
         SimpleModule simpleModule = new SimpleModule()
