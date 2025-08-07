@@ -126,10 +126,10 @@ public class OrderServiceImpl implements OrderService {
         return orderSubmitVO;
     }
 
-    @Value("${sky.shop.address}")
+    @Value("${eats.shop.address}")
     private String shopAddress;
 
-    @Value("${sky.baidu.ak}")
+    @Value("${eats.baidu.ak}")
     private String ak;
 
     /**

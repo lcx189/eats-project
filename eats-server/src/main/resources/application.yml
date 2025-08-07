@@ -8,15 +8,15 @@ spring:
     allow-circular-references: true
   datasource:
     druid:
-      driver-class-name: ${sky.datasource.driver-class-name}
-      url: jdbc:mysql://${sky.datasource.host}:${sky.datasource.port}/${sky.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
-      username: ${sky.datasource.username}
-      password: ${sky.datasource.password}
+      driver-class-name: ${eats.datasource.driver-class-name}
+      url: jdbc:mysql://${eats.datasource.host}:${eats.datasource.port}/${eats.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      username: ${eats.datasource.username}
+      password: ${eats.datasource.password}
   redis:
-    host: ${sky.redis.host}
-    port: ${sky.redis.port}
-    password: ${sky.redis.password}
-    database: ${sky.redis.database}
+    host: ${eats.redis.host}
+    port: ${eats.redis.port}
+    password: ${eats.redis.password}
+    database: ${eats.redis.database}
 
 mybatis:
   #mapper設定ファイル
@@ -29,12 +29,12 @@ mybatis:
 logging:
   level:
     com:
-      sky:
+      eats:
         mapper: debug
         service: info
         controller: info
 
-sky:
+eats:
   jwt:
     # JWT署名暗号化に使用する秘密鍵を設定
     admin-secret-key: itcast
@@ -46,20 +46,20 @@ sky:
     user-ttl: 7200000
     user-token-name: authentication
   alioss:
-    endpoint: ${sky.alioss.endpoint}
-    access-key-id: ${sky.alioss.access-key-id}
-    access-key-secret: ${sky.alioss.access-key-secret}
-    bucket-name: ${sky.alioss.bucket-name}
+    endpoint: ${eats.alioss.endpoint}
+    access-key-id: ${eats.alioss.access-key-id}
+    access-key-secret: ${eats.alioss.access-key-secret}
+    bucket-name: ${eats.alioss.bucket-name}
   wechat:
-    appid: ${sky.wechat.appid}
-    secret: ${sky.wechat.secret}
-    mchid : ${sky.wechat.mchid}
-    mchSerialNo: ${sky.wechat.mchSerialNo}
-    privateKeyFilePath: ${sky.wechat.privateKeyFilePath}
-    apiV3Key: ${sky.wechat.apiV3Key}
-    weChatPayCertFilePath: ${sky.wechat.weChatPayCertFilePath}
-    notifyUrl: ${sky.wechat.notifyUrl}
-    refundNotifyUrl: ${sky.wechat.refundNotifyUrl}
+    appid: ${eats.wechat.appid}
+    secret: ${eats.wechat.secret}
+    mchid : ${eats.wechat.mchid}
+    mchSerialNo: ${eats.wechat.mchSerialNo}
+    privateKeyFilePath: ${eats.wechat.privateKeyFilePath}
+    apiV3Key: ${eats.wechat.apiV3Key}
+    weChatPayCertFilePath: ${eats.wechat.weChatPayCertFilePath}
+    notifyUrl: ${eats.wechat.notifyUrl}
+    refundNotifyUrl: ${eats.wechat.refundNotifyUrl}
   shop:
     address: 東京都新宿区西新-8-1
   baidu:
