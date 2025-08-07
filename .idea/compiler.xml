@@ -20,6 +20,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="eats-common" options="-parameters" />
       <module name="eats-pojo" options="-parameters" />
+      <module name="eats-project" options="" />
       <module name="eats-server" options="-parameters" />
       <module name="sky-common" options="-parameters" />
       <module name="sky-pojo" options="-parameters" />
