@@ -53,9 +53,9 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
     public Docket docket1(){
         log.info("APIドキュメントの生成を準備していま..");
         ApiInfo apiInfo = new ApiInfoBuilder()
-                .title("スカイテイクアウトプロジェクトAPIドキュメント")
+                .title("EatsプロジェクトAPIドキュメント")
                 .version("2.0")
-                .description("スカイテイクアウトプロジェクトAPIドキュメント")
+                .description("Eats出前プロジェクトAPIドキュメント")
                 .build();
 
         Docket docket = new Docket(DocumentationType.SWAGGER_2)
@@ -74,9 +74,9 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
     public Docket docket2(){
         log.info("APIドキュメントの生成を準備していま..");
         ApiInfo apiInfo = new ApiInfoBuilder()
-                .title("スカイテイクアウトプロジェクトAPIドキュメント")
+                .title("Eats出前プロジェクトAPIドキュメント")
                 .version("2.0")
-                .description("スカイテイクアウトプロジェクトAPIドキュメント")
+                .description("Eats出前プロジェクトAPIドキュメント")
                 .build();
 
         Docket docket = new Docket(DocumentationType.SWAGGER_2)
