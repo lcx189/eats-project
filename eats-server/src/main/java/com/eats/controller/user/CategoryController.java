@@ -25,7 +25,7 @@ public class CategoryController {
      * @return
      */
     @GetMapping("/list")
-    @ApiOperation("カテゴリを照")
+    @ApiOperation("カテゴリを照会")
     public Result<List<Category>> list(Integer type) {
         List<Category> list = categoryService.list(type);
         return Result.success(list);

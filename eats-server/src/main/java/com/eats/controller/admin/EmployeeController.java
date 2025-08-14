@@ -41,7 +41,7 @@ public class EmployeeController {
      * @return
      */
     @PostMapping("/login")
-    @ApiOperation(value = "従業員ログイ")
+    @ApiOperation(value = "従業員ログイン")
     public Result<EmployeeLoginVO> login(@RequestBody EmployeeLoginDTO employeeLoginDTO) {
         log.info("従業員ログイン：{}", employeeLoginDTO);
 

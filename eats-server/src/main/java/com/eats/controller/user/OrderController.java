@@ -73,7 +73,7 @@ public class OrderController {
      * @return
      */
     @GetMapping("/orderDetail/{id}")
-    @ApiOperation("注文詳細を照")
+    @ApiOperation("注文詳細を照会")
     public Result<OrderVO> details(@PathVariable("id") Long id) {
         OrderVO orderVO = orderService.details(id);
         return Result.success(orderVO);
@@ -98,19 +98,19 @@ public class OrderController {
      * @return
      */
     @PostMapping("/repetition/{id}")
-    @ApiOperation("もう一度注")
+    @ApiOperation("もう一度注文")
     public Result repetition(@PathVariable Long id) {
         orderService.repetition(id);
         return Result.success();
     }
 
     /**
-     * 顧客からの督
+     * 顧客からの督促
      * @param id
      * @return
      */
     @GetMapping("/reminder/{id}")
-    @ApiOperation("顧客からの督")
+    @ApiOperation("顧客からの督促")
     public Result reminder(@PathVariable("id") Long id){
         orderService.reminder(id);
         return Result.success();

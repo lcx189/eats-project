@@ -119,7 +119,7 @@ public class OrderController {
      * @return
      */
     @PutMapping("/complete/{id}")
-    @ApiOperation("注文を完")
+    @ApiOperation("注文を完了")
     public Result complete(@PathVariable("id") Long id) {
         orderService.complete(id);
         return Result.success();
