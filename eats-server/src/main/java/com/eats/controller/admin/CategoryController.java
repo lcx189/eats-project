@@ -26,7 +26,7 @@ public class CategoryController {
     private CategoryService categoryService;
 
     /**
-     * カテゴリを追
+     * カテゴリを追加
      * @param categoryDTO
      * @return
      */
@@ -52,7 +52,7 @@ public class CategoryController {
     }
 
     /**
-     * カテゴリを削
+     * カテゴリを削除
      * @param id
      * @return
      */

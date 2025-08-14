@@ -13,14 +13,14 @@ import java.util.List;
 
 @RestController("userCategoryController")
 @RequestMapping("/user/category")
-@Api(tags = "CカテゴリAPI")
+@Api(tags = "C側カテゴリAPI")
 public class CategoryController {
 
     @Autowired
     private CategoryService categoryService;
 
     /**
-     * カテゴリを照
+     * カテゴリを照会
      * @param type
      * @return
      */

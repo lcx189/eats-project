@@ -59,7 +59,7 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
                 .build();
 
         Docket docket = new Docket(DocumentationType.SWAGGER_2)
-                .groupName("管理側インターフェー")
+                .groupName("管理側インターフェース")
                 .apiInfo(apiInfo)
                 .select()
                 //生成するインターフェースがスキャンする必要のあるパッケージを指定
@@ -80,7 +80,7 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
                 .build();
 
         Docket docket = new Docket(DocumentationType.SWAGGER_2)
-                .groupName("ユーザー側インターフェー")
+                .groupName("ユーザー側インターフェース")
                 .apiInfo(apiInfo)
                 .select()
                 //生成するインターフェースがスキャンする必要のあるパッケージを指定
