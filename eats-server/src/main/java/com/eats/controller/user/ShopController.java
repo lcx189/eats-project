@@ -27,7 +27,11 @@ public class ShopController {
     @ApiOperation("店舗の営業状態を取得")
     public Result<Integer> getStatus(){
         Integer status = (Integer) redisTemplate.opsForValue().get(KEY);
-        log.info("取得した店舗の営業状態：{}",status == 1 ? "営業" : "閉店");
+        if (status == null) {
+            status = 1; // デフォルト: 営業
+            try { redisTemplate.opsForValue().setIfAbsent(KEY, status); } catch (Exception ignore) {}
+        }
+        log.info("取得した店舗の営業状態：{}", (status != null && status == 1) ? "営業" : "閉店");
         return Result.success(status);
     }
 }
